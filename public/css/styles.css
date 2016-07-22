@@ -9,3 +9,11 @@ h1,h2,h3 {
 .btn-home {
   margin:20px;
 }
+
+ul.brands-list li {
+  list-style-type: none;
+  font-size: 22px;
+  margin-right: 22px;
+  list-style-position: outside;
+  float: left;
+}

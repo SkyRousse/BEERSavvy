@@ -62,6 +62,16 @@ post('/brands') do
   end
 end
 
+post('store/:id/ingredients') do
+  store_id = params.fetch('id').to_i()
+  @store = Store.find(store_id)
+  brand = params.fetch('brand_name')
+  @brand = @store.brands.new({:name => name})
+  @store.brands.push(@brand)
+  redirect('/stores/'.concat(@store.id().to_s()))
+  erb(:recipes)
+end
+
 get('/brand/:id') do
   @brand = Brand.find(params.fetch('id').to_i())
   erb(:brand)
