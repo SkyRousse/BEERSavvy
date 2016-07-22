@@ -9,4 +9,8 @@ describe(Store) do
     test_store = Store.new({:name => "a".*(21)})
     expect(test_store.save()).to(eq(false))
   end
+  it('capitalizes the name') do
+    test_store = Store.create({:name => "jonny"})
+    expect(test_store.name()).to(eq("Jonny"))
+  end
 end
