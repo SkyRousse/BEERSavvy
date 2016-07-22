@@ -24,3 +24,20 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <form class="form-horizontal" action="/store/<%= @store.id() %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <fieldset>
+          <legend>Delete this store</legend>
+          <div class="form-group">
+            <div class="col-lg-9 col-lg-offset-3">
+              <button type="submit" class="btn btn-primary">Delete</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

@@ -39,3 +39,13 @@ describe('update store path', {:type => :feature}) do
     expect(page).to have_content("Rens")
   end
 end
+
+describe('delete store path', {:type => :feature}) do
+  it('allows a user to delete a store from the database') do
+    test_store = Store.create({:name => "stumpys"})
+    visit('/stores')
+    click_link('Stumpys')
+    click_button('Delete')
+    expect(page).to have_no_content('Stumpys')
+  end
+end

@@ -38,3 +38,10 @@ patch('/store/:id') do
     erb(:errors)
   end
 end
+
+delete('/store/:id') do
+  store_id = params.fetch('id').to_i()
+  @store = Store.find(store_id)
+  @store.destroy()
+  redirect('/stores')
+end
