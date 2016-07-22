@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-lg-6">
-    <h3>Current Store Name: <%= @store.name() %></h3>
+    <h3>Current Brand Name: <%= @brand.name() %></h3>
   </div>
   <div class="col-lg-6">
     <div class="well bs-component">
-      <form class="form-horizontal" action="/store/<%= @store.id() %>" method="post">
+      <form class="form-horizontal" action="/brand/<%= @brand.id() %>" method="post">
         <input type="hidden" name="_method" value="patch">
         <fieldset>
           <legend>Update Name Here</legend>
@@ -30,10 +30,10 @@
   </div>
   <div class="col-lg-6">
     <div class="well bs-component">
-      <form class="form-horizontal" action="/store/<%= @store.id() %>" method="post">
+      <form class="form-horizontal" action="/brand/<%= @brand.id() %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <fieldset>
-          <legend>Delete this store</legend>
+          <legend>Delete this brand</legend>
           <div class="form-group">
             <div class="col-lg-9 col-lg-offset-3">
               <button type="submit" class="btn btn-danger">Delete</button>

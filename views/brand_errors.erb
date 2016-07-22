@@ -1,0 +1,8 @@
+<h3>Oops there were some errors:</h3>
+<ul>
+  <% @brand.errors().full_messages().each() do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+<h5><a href="/brands" >Return to brands page to try again</a></h5>
