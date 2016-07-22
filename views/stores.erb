@@ -4,7 +4,7 @@
     <h3>Here are the stores in the C.R.U.D.L database</h3>
       <ul>
         <% @stores.each do |store| %>
-          <li><%= store.name() %></li>
+          <li><a href="/store/<%= store.id() %>"><%= store.name() %></a></li>
         <% end %>
       </ul>
     <% else %>

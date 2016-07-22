@@ -13,10 +13,29 @@ end
 
 describe('list all shoe stores route', {:type => :feature}) do
   it('allows a user to see all of the stores in the database') do
-    visit('/')
-    click_link('See the stores')
-    fill_in("name", :with => "stabbys")
-    click_button('Add Store')
-    expect(page).to have_content("Stabbys")
+    test_store = Store.create({:name => "stabbys"})
+    test_store = Store.create({:name => "stumpys"})
+    visit('/stores')
+    expect(page).to have_content("Stabbys Stumpys")
+  end
+end
+
+describe('see store details path', {:type => :feature}) do
+  it('allows a user to view the stores details') do
+    test_store = Store.create({:name => "stumpys"})
+    visit('/stores')
+    click_link('Stumpys')
+    expect(page).to have_content("Current Store Name: Stumpys")
+  end
+end
+
+describe('update store path', {:type => :feature}) do
+  it('allows a user to rename the store') do
+    test_store = Store.create({:name => "stumpys"})
+    visit('/stores')
+    click_link('Stumpys')
+    fill_in('new_name', :with => "rens")
+    click_button('Update')
+    expect(page).to have_content("Rens")
   end
 end

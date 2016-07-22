@@ -19,6 +19,22 @@ post('/stores') do
   if @store.save()
     redirect('/stores')
   else
-    erb(:error)
+    erb(:errors)
+  end
+end
+
+get('/store/:id') do
+  @store = Store.find(params.fetch('id').to_i())
+  erb(:store)
+end
+
+patch('/store/:id') do
+  store_id = params.fetch('id').to_i()
+  @store = Store.find(store_id)
+  name = params.fetch('new_name')
+  if @store.update(:name => name)
+    redirect('/store/'.concat(@store.id().to_s()))
+  else
+    erb(:errors)
   end
 end
