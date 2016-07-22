@@ -10,4 +10,5 @@ group(:test) do
   gem('respec')
   gem('pry')
   gem('capybara')
+  gem ('shoulda-matchers')
 end
