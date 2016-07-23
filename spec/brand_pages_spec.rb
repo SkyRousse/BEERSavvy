@@ -7,6 +7,6 @@ describe('add a brand to a store route', {:type => :feature}) do
     click_link('Stumpys')
     fill_in('brand_name', :with => "test_brand")
     click_button('Add Brand')
-    expect(page).to have_content("test_brand")
+    expect(page).to have_content("Test_brand")
   end
 end

@@ -31,9 +31,9 @@
     <h3> Here are all the brands this store carrys </h3>
     <ul class="brands-list">
     <% @brands.each() do |brand| %>
-      <form action="/brand/<%= brand.id()%>" method="post">
+      <form action="/store/<%= @store.id() %>/remove_brand" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="hidden" name="store_id" value="<%= @store.id() %>">
+        <input type="hidden" name="brand_id" value="<%= brand.id() %>">
           <button class="ingredient-btn btn btn-danger"type="submit">X</button>
       </form>
       <li><%= brand.name() %></li>
@@ -45,7 +45,7 @@
   </div>
   <div class="col-lg-6">
     <div class="well bs-component">
-      <form class="form-horizontal" action="<%= @store.id() %>/brands" method="post">
+      <form class="form-horizontal" action="/store/<%= @store.id() %>/brands" method="post">
         <fieldset>
           <legend>Add a Brand Here</legend>
           <div class="form-group">

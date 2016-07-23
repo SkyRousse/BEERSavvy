@@ -39,11 +39,10 @@ patch('/store/:id') do
   end
 end
 
-post('store/:id/brands') do
-  binding.pry
+post('/store/:id/brands') do
   store_id = params.fetch('id').to_i()
   @store = Store.find(store_id)
-  brand = params.fetch('brand_name')
+  name = params.fetch('brand_name')
   @brand = @store.brands.new({:name => name})
   @store.brands.push(@brand)
   redirect('/store/'.concat(@store.id().to_s()))
@@ -57,6 +56,12 @@ delete('/store/:id') do
   redirect('/stores')
 end
 
+delete('/store/:id/remove_brand') do
+  store = Store.find(params.fetch("id").to_i)
+  brand_id = params.fetch("brand_id").to_i
+  store.brands.destroy(Brand.find(brand_id))
+  redirect('/store/'.concat(store.id.to_s))
+end
 
 get('/brands') do
   @brands = Brand.all()
