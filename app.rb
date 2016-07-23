@@ -25,18 +25,29 @@ end
 
 get('/store/:id') do
   @store = Store.find(params.fetch('id').to_i())
+  @brands = @store.brands()
   erb(:store)
 end
 
 patch('/store/:id') do
-  store_id = params.fetch('id').to_i()
-  @store = Store.find(store_id)
+  @store = Store.find(params.fetch('id').to_i())
   name = params.fetch('new_name')
   if @store.update(:name => name)
     redirect('/store/'.concat(@store.id().to_s()))
   else
     erb(:store_errors)
   end
+end
+
+post('store/:id/brands') do
+  binding.pry
+  store_id = params.fetch('id').to_i()
+  @store = Store.find(store_id)
+  brand = params.fetch('brand_name')
+  @brand = @store.brands.new({:name => name})
+  @store.brands.push(@brand)
+  redirect('/store/'.concat(@store.id().to_s()))
+  erb(:stores)
 end
 
 delete('/store/:id') do
@@ -60,16 +71,6 @@ post('/brands') do
   else
     erb(:brand_errors)
   end
-end
-
-post('store/:id/ingredients') do
-  store_id = params.fetch('id').to_i()
-  @store = Store.find(store_id)
-  brand = params.fetch('brand_name')
-  @brand = @store.brands.new({:name => name})
-  @store.brands.push(@brand)
-  redirect('/stores/'.concat(@store.id().to_s()))
-  erb(:recipes)
 end
 
 get('/brand/:id') do
