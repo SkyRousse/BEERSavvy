@@ -3,14 +3,23 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 
+brewery_db = BreweryDB::Client.new do |config|
+  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
+end
 
 get('/') do
   erb(:index)
 end
 
-get('/stores') do
-  @stores = Store.all()
-  erb(:stores)
+get("/beers") do
+  @breweries = brewery_db.breweries.all(established: 2006)
+  erb(:breweries)
+end
+
+get('/breweries') do
+  @brewery = brewery_db.breweries.find('bdjbTZ')
+  @breweries = brewery_db.breweries.all(established: 2006)
+  erb(:breweries)
 end
 
 post('/stores') do
