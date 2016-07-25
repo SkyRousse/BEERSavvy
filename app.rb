@@ -7,13 +7,26 @@ brewery_db = BreweryDB::Client.new do |config|
   config.api_key = ("37f05932e468ea014afabb1d166a6f99")
 end
 
+
 get('/') do
   erb(:index)
 end
 
-get("/beers") do
-  @breweries = brewery_db.breweries.all(established: 2006)
-  erb(:breweries)
+get("/beers/:id") do
+  @beer = brewery_db.beers.find(params.fetch('id'))
+  @name = @beer[:name]
+  @description = @beer[:description]
+  @abv = @beer[:abv]
+  @ibu = @beer[:ibu]
+  @style = @beer[:style]
+  @srm = @beer[:srm]
+  @glass = @beer[:glass]
+  erb(:beer)
+end
+
+post('/beers') do
+  @id = params.fetch('beer_id')
+   redirect('/beers/'.concat(@id.to_s()))
 end
 
 get('/breweries') do
@@ -22,15 +35,7 @@ get('/breweries') do
   erb(:breweries)
 end
 
-post('/stores') do
-  name = params.fetch('store_name')
-  @store = Store.new(:name => name)
-  if @store.save()
-    redirect('/stores')
-  else
-    erb(:store_errors)
-  end
-end
+
 
 get('/store/:id') do
   @store = Store.find(params.fetch('id').to_i())

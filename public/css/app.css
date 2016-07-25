@@ -1,4 +1,4 @@
-header, #beer-name-input, .beer-card {
+header, #beer-name-input, #beer-name-input form, .beer-card {
   width: 97.5%;
   margin: 0 auto; }
 
@@ -23,7 +23,8 @@ header {
     text-align: center; }
 
 #beer-name-input {
-  margin: 2em; }
+  margin: 2em 0;
+  max-width: 600px; }
   #beer-name-input form {
     display: flex;
     text-align: center;
@@ -31,8 +32,7 @@ header {
   #beer-name-input input {
     flex: 1 1 90%;
     line-height: 3em;
-    text-align: center;
-    max-width: 600px; }
+    text-align: center; }
   #beer-name-input button {
     flex: 1 1 10%;
     max-width: 50px; }
@@ -40,23 +40,32 @@ header {
       font-size: 21px;
       color: #332c23; }
 
+body {
+  background-color: #FCDFA6; }
+
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #FCDFA6; }
+  align-items: center; }
 
 .beer-card {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  max-width: 600px;
+  padding: 15px;
+  background: #fef6e6;
+  border-radius: 6px;
+  box-shadow: 0px 0px 35px -6px #332c23; }
   .beer-card .beer-pour {
-    flex-basis: 1 1 50%; }
+    display: flex;
+    flex: 1 1 50%; }
     .beer-card .beer-pour img {
       width: 100%; }
   .beer-card .beer-stats {
     flex: 0 1 50%;
-    display: flex; }
+    display: flex;
+    padding: 0 15px; }
     .beer-card .beer-stats tbody {
       display: flex;
       flex-direction: column;
@@ -73,6 +82,8 @@ header {
     .beer-card .beer-stats .value {
       text-align: right; }
   .beer-card .beer-description {
+    padding: 40px 10px 20px 10px;
+    font-family: sans-serif;
     flex: 1 1 100%; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -121,5 +132,11 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 /*# sourceMappingURL=app.css.map */

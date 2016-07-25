@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: http://gemcutter.org/
   specs:
     activemodel (5.0.0)
       activesupport (= 5.0.0)
@@ -13,6 +14,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    api_cache (0.3.0)
     arel (7.1.0)
     backports (3.6.8)
     brewery_db (0.2.4)
@@ -41,6 +43,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    moneta (0.8.0)
     multi_json (1.12.1)
     multipart-post (1.2.0)
     nokogiri (1.6.8)
@@ -101,8 +104,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api_cache
   brewery_db
   capybara
+  moneta
   pg
   pry
   rake
