@@ -19,39 +19,8 @@ $base-line-height: 1;
 $smaller-font-size:  $base-font-size * 0.875;
 $bigger-font-size: $base-font-size * 1.3125;
 
-%base-text {
-  font-family: $base-font-family;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-};
-
-%smaller-text {
-  font-family: $base-font-family;
-  font-size: $smaller-font-size;
-  line-height: $base-line-height;
-};
-
-%bigger-text {
-  font-family: $base-font-family;
-  font-size: $bigger-font-size;
-  line-height: $base-line-height;
-};
-
 $title-font-family: 'Nunito', sans-serif;
 $title-font-size: 120px;
 $title-font-spacing: -12px;
 $title-italics-font-family: 'Pattaya', sans-serif;
 $title-italics-font-spacing: -5px;
-
-
-%title {
-  font-family: $title-font-family;
-  font-size: $title-font-size;
-  letter-spacing: $title-font-spacing;
-  span {
-    font-family: $title-italics-font-family;
-    letter-spacing: $title-italics-font-spacing;
-    font-style: italic;
-
-  }
-}

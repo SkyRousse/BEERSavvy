@@ -2,10 +2,17 @@ header h1 {
   font-family: "Nunito", sans-serif;
   font-size: 120px;
   letter-spacing: -12px; }
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 84px; } }
   header h1 span {
     font-family: "Pattaya", sans-serif;
     letter-spacing: -5px;
     font-style: italic; }
+
+header {
+  width: 97.5%;
+  margin: 0 auto; }
 
 .container {
   display: flex;

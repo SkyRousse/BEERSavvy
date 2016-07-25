@@ -1,0 +1,60 @@
+// Layout
+
+@mixin outer-container {
+  width: 97.5%;
+  margin: 0 auto;
+};
+
+@mixin breakpoint($point) {
+
+  $small-breakpoint: "(max-width: 600px)";
+  $medium-breakpoint: "(max-width: 1250px)";
+  $large-breakpoint: "(max-width: 1600px)";
+
+  @if $point == large-breakpoint {
+    @media #{$large-breakpoint} { @content; }
+  }
+  @else if $point == medium-breakpoint {
+    @media #{$medium-breakpoint} { @content; }
+  }
+  @else if $point == small-breakpoint {
+    @media #{$small-breakpoint} { @content; }
+  }
+
+}
+
+// Fonts
+
+%base-text {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+};
+
+%smaller-text {
+  font-family: $base-font-family;
+  font-size: $smaller-font-size;
+  line-height: $base-line-height;
+};
+
+%bigger-text {
+  font-family: $base-font-family;
+  font-size: $bigger-font-size;
+  line-height: $base-line-height;
+};
+
+%title {
+  font-family: $title-font-family;
+  font-size: $title-font-size;
+  letter-spacing: $title-font-spacing;
+  @include breakpoint(small-breakpoint) {
+    font-size: $title-font-size * 0.7;
+  };
+
+  span {
+    font-family: $title-italics-font-family;
+    letter-spacing: $title-italics-font-spacing;
+    font-style: italic;
+
+  }
+}

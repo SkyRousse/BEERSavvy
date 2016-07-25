@@ -1,4 +1,5 @@
 header {
+  @include outer-container;
   h1 {
   @extend %title;
   }
