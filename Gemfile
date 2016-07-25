@@ -11,7 +11,7 @@ gem('api_cache')
 gem('moneta')
 
 group(:test) do
-  gem('respec')
+  gem('rspec')
   gem('pry')
   gem('capybara')
   gem ('shoulda-matchers')
