@@ -10,3 +10,29 @@ $light-yellow: #FCDFA6;
 
 $default-text-color: black;
 $reverse-text-color: white;
+
+// Fonts
+
+$base-font-family: 'Roboto', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1;
+$smaller-font-size:  $base-font-size * 0.875;
+$bigger-font-size: $base-font-size * 1.3125;
+
+%base-text {
+  font-family; $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+};
+
+%smaller-text {
+  font-family; $base-font-family;
+  font-size: $smaller-font-size;
+  line-height: $base-line-height;
+};
+
+%bigger-text {
+  font-family; $base-font-family;
+  font-size: $bigger-font-size;
+  line-height: $base-line-height;
+};
