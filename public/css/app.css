@@ -1,0 +1,142 @@
+header, #beer-name-input, #beer-name-input form, .beer-card {
+  width: 97.5%;
+  margin: 0 auto; }
+
+header h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 120px;
+  letter-spacing: -12px;
+  color: #332c23; }
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 84px; } }
+  header h1 span {
+    font-family: "Pattaya", sans-serif;
+    letter-spacing: -5px;
+    font-style: italic;
+    color: #6B2636; }
+
+header {
+  display: flex;
+  justify-content: center; }
+  header h1 {
+    text-align: center; }
+
+#beer-name-input {
+  margin: 2em 0;
+  max-width: 600px; }
+  #beer-name-input form {
+    display: flex;
+    text-align: center;
+    justify-content: center; }
+  #beer-name-input input {
+    flex: 1 1 90%;
+    line-height: 3em;
+    text-align: center; }
+  #beer-name-input button {
+    flex: 1 1 10%;
+    max-width: 50px; }
+    #beer-name-input button i {
+      font-size: 21px;
+      color: #332c23; }
+
+body {
+  background-color: #FCDFA6; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.beer-card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 600px;
+  padding: 15px;
+  background: #fef6e6;
+  border-radius: 6px;
+  box-shadow: 0px 0px 35px -6px #332c23; }
+  .beer-card .beer-pour {
+    display: flex;
+    flex: 1 1 50%; }
+    .beer-card .beer-pour img {
+      width: 100%; }
+  .beer-card .beer-stats {
+    flex: 0 1 50%;
+    display: flex;
+    padding: 0 15px; }
+    .beer-card .beer-stats tbody {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 2em;
+      width: 100%; }
+    .beer-card .beer-stats tr {
+      display: flex;
+      justify-content: space-between; }
+    .beer-card .beer-stats td {
+      flex: 1 1 auto; }
+    .beer-card .beer-stats .label {
+      font-weight: bold; }
+    .beer-card .beer-stats .value {
+      text-align: right; }
+  .beer-card .beer-description {
+    padding: 40px 10px 20px 10px;
+    font-family: sans-serif;
+    flex: 1 1 100%; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*# sourceMappingURL=app.css.map */

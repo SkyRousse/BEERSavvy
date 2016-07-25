@@ -1,0 +1,26 @@
+@import "srm";
+
+// Colors
+
+$dark-brown: #332c23;
+$dark-yellow: #DDAE7E;
+$red: #6B2636;
+$light-brown: #C89B7B;
+$light-yellow: #FCDFA6;
+
+$default-text-color: black;
+$reverse-text-color: white;
+
+// Fonts
+
+$base-font-family: 'Roboto', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1;
+$smaller-font-size:  $base-font-size * 0.875;
+$bigger-font-size: $base-font-size * 1.3125;
+
+$title-font-family: 'Nunito', sans-serif;
+$title-font-size: 120px;
+$title-font-spacing: -12px;
+$title-italics-font-family: 'Pattaya', sans-serif;
+$title-italics-font-spacing: -5px;

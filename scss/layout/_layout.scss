@@ -1,0 +1,11 @@
+body{
+  background-color: $light-yellow;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+@import "beer-card";

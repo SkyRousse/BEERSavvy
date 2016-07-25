@@ -18,7 +18,7 @@ get("/beers/:id") do
   @description = @beer[:description]
   @abv = @beer[:abv]
   @ibu = @beer[:ibu]
-  @style = @beer[:style]
+  @style = @beer[:style][:name]
   @srm = @beer[:srm]
   @glass = @beer[:glass]
   erb(:beer)
