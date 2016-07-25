@@ -1,12 +1,8 @@
-@mixin outer-container {
-  width: 97.5%;
-  margin: 0 auto;
-};
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $light-yellow
 }
 
 @import "beer-card";
