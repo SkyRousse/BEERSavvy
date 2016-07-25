@@ -1,0 +1,39 @@
+.beer-card {
+  @include outer-container;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+    .beer-pour {
+    flex-basis: 1 1 50%;
+    img {
+      width: 100%;
+    }
+  }
+  .beer-stats {
+    flex: 0 1 50%;
+    display: flex;
+    tbody {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 2em;
+      width: 100%
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+    }
+    td {
+      flex: 1 1 auto;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .value {
+      text-align: right;
+    }
+  }
+  .beer-description {
+    flex: 1 1 100%;
+  }
+};
