@@ -1,27 +1,52 @@
+header, #beer-name-input, .beer-card {
+  width: 97.5%;
+  margin: 0 auto; }
+
 header h1 {
   font-family: "Nunito", sans-serif;
   font-size: 120px;
-  letter-spacing: -12px; }
+  letter-spacing: -12px;
+  color: #332c23; }
   @media (max-width: 600px) {
     header h1 {
       font-size: 84px; } }
   header h1 span {
     font-family: "Pattaya", sans-serif;
     letter-spacing: -5px;
-    font-style: italic; }
+    font-style: italic;
+    color: #6B2636; }
 
 header {
-  width: 97.5%;
-  margin: 0 auto; }
+  display: flex;
+  justify-content: center; }
+  header h1 {
+    text-align: center; }
+
+#beer-name-input {
+  margin: 2em; }
+  #beer-name-input form {
+    display: flex;
+    text-align: center;
+    justify-content: center; }
+  #beer-name-input input {
+    flex: 1 1 90%;
+    line-height: 3em;
+    text-align: center;
+    max-width: 600px; }
+  #beer-name-input button {
+    flex: 1 1 10%;
+    max-width: 50px; }
+    #beer-name-input button i {
+      font-size: 21px;
+      color: #332c23; }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  background-color: #FCDFA6; }
 
 .beer-card {
-  width: 97.5%;
-  margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between; }

@@ -1,6 +1,9 @@
 header {
-  @include outer-container;
+  @extend %outer-container;
+  display: flex;
+  justify-content: center;
   h1 {
   @extend %title;
+  text-align: center;
   }
 }
