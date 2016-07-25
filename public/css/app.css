@@ -1,3 +1,12 @@
+header h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 120px;
+  letter-spacing: -12px; }
+  header h1 span {
+    font-family: "Pattaya", sans-serif;
+    letter-spacing: -5px;
+    font-style: italic; }
+
 .container {
   display: flex;
   flex-direction: column;
