@@ -2,6 +2,10 @@ header, #beer-name-input, #beer-name-input form, .beer-card {
   width: 97.5%;
   margin: 0 auto; }
 
+.beer-card .beer-stats td {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px; }
+
 header h1 {
   font-family: "Nunito", sans-serif;
   font-size: 120px;
@@ -69,18 +73,27 @@ body {
     .beer-card .beer-stats tbody {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      line-height: 2em;
+      justify-content: space-around;
       width: 100%; }
     .beer-card .beer-stats tr {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid #6B2636;
+      padding-bottom: 5px;
+      height: 45px; }
+      .beer-card .beer-stats tr:first-child {
+        margin-top: 75px; }
+      .beer-card .beer-stats tr:last-child {
+        margin-bottom: 75px; }
     .beer-card .beer-stats td {
       flex: 1 1 auto; }
     .beer-card .beer-stats .label {
-      font-weight: bold; }
+      font-weight: bold;
+      text-transform: uppercase; }
     .beer-card .beer-stats .value {
-      text-align: right; }
+      text-align: right;
+      padding-left: 15px; }
   .beer-card .beer-description {
     padding: 40px 10px 20px 10px;
     font-family: sans-serif;
