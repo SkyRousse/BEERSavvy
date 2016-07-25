@@ -1,0 +1,25 @@
+#beer-name-input {
+  @extend %outer-container;
+  margin: 2em 0;
+  max-width: 600px;
+  form {
+    @extend %outer-container;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  input {
+    flex: 1 1 90%;
+    line-height: 3em;
+    text-align: center;
+
+  }
+  button {
+    flex: 1 1 10%;
+    max-width: 50px;
+    i {
+      font-size: $bigger-font-size;
+      color: $dark-brown;
+    }
+  }
+}

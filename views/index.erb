@@ -1,20 +1,6 @@
-<div class="jumbotron home-portal">
-  <h1>BEERsavvy</h1>
-  <hr>
-  <form class="form-horizontal" action="/beers" method="post">
-    <fieldset>
-      <legend>Find a brewery</legend>
-      <div class="form-group">
-        <label for="brewery_name" class="col-lg-3 control-label">brewery Name</label>
-        <div class="col-lg-9">
-          <input type="text" class="form-control" name="beer_id" id="brewery_name" placeholder="beer_id">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-lg-9 col-lg-offset-3">
-          <button type="submit" class="btn btn-primary">Go</button>
-        </div>
-      </div>
-    </fieldset>
+<section id="beer-name-input">
+  <form action="/beers" method="post">
+    <input type="text" class="form-control" name="beer_id" placeholder="beer_id">
+    <button type="submit" name="name" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
-</div>
+</section>

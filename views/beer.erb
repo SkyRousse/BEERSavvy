@@ -1,9 +1,44 @@
-<h1>test</h1>
-<h3><%= @id %></h3>
-<h3><%= @name %></h3>
-<h3><%= @description %></h3>
-<h3><%= @abv  %></h3>
-<h3><%= @ibu %></h3>
-<h3><%= @style %></h3>
-<h3><%= @srm %></h3>
-<h3><%= @glass %></h3>
+<section id="beer-cards">
+  <article class="beer-card">
+    <figure class="beer-pour">
+      <img src="/img/beer_PNG2330.png" alt="placeholder beer image" />
+    </figure>
+    <table class="beer-stats">
+      <tr>
+        <td class="label">
+          Name
+        </td>
+        <td class="value beer-name">
+          <%= @name %>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          Style
+        </td>
+        <td class="value beer-style">
+          <%= @style %>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          IBU
+        </td>
+        <td class="value beer-ibu">
+          <%= @ibu %>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          ABV
+        </td>
+        <td class="value beer-abv">
+          <%= @abv %>
+        </td>
+      </tr>
+    </table>
+    <p class="beer-description">
+      <%= @description %>
+    </p>
+  </article>
+</section>
