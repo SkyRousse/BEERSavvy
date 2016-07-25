@@ -1,8 +1,20 @@
 <div class="jumbotron home-portal">
-  <h1>C.R.U.D.L.</h1>
-  <h2>Shoe Distribution</h2>
+  <h1>BEERsavvy</h1>
   <hr>
-  <h3>This is an admin portal used to manage shoe stores and the brands they sell </h3>
-  <a href="/breweries" class="btn btn-primary btn-lg btn-home">See the brewies</a>
-  <a href="/brands" class="btn btn-primary btn-lg btn-home">See the brands</a>
+  <form class="form-horizontal" action="/beers" method="post">
+    <fieldset>
+      <legend>Find a brewery</legend>
+      <div class="form-group">
+        <label for="brewery_name" class="col-lg-3 control-label">brewery Name</label>
+        <div class="col-lg-9">
+          <input type="text" class="form-control" name="beer_id" id="brewery_name" placeholder="beer_id">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-9 col-lg-offset-3">
+          <button type="submit" class="btn btn-primary">Go</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </div>

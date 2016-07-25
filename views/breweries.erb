@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-lg-6">
     <% if @breweries.any? %>
-    <h3>Here are the brewerires in the database</h3>
+    <h3>Here are the breweries in the database for Portland</h3>
       <ul>
         <% @breweries.each do |brewery| %>
           <li><a href="/brewery/<%= brewery.id() %>"><%= brewery.name() %></a></li>
+
         <% end %>
       </ul>
     <% else %>
