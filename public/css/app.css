@@ -171,7 +171,7 @@ header {
   0% {
     bottom: 10px; }
   100% {
-    bottom: 190px; } }
+    bottom: 180px; } }
 .beer-foam {
   position: absolute;
   bottom: 10px;
@@ -210,7 +210,7 @@ header {
 
 .foam-6 {
   top: -20px;
-  left: 130px; }
+  left: 129px; }
 
 body {
   background-color: #FCDFA6; }
@@ -224,7 +224,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  max-width: 600px;
+  width: 591px;
   padding: 15px;
   background: #fef6e6;
   border-radius: 6px;
