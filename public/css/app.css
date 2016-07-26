@@ -368,7 +368,7 @@ header {
 
 .foam-6 {
   top: -20px;
-  left: 129px; }
+  left: 131px; }
 
 body {
   background-color: #FCDFA6; }
@@ -379,6 +379,7 @@ body {
   align-items: center; }
 
 .beer-card {
+  margin-bottom: 3em;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
