@@ -14,13 +14,13 @@
       position: relative;
       justify-content: center;
       display: flex;
-      flex: 1 1 50%;
+      flex: 1 1 60%;
     img {
       width: 100%;
     }
   }
   .beer-stats {
-    flex: 0 1 50%;
+    flex: 0 1 40%;
     display: flex;
     padding: 0 $spacing;
     tbody {

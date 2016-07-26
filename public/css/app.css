@@ -207,7 +207,7 @@ header {
 #container {
   width: 75%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 5em;
   overflow: hidden; }
@@ -226,31 +226,11 @@ header {
 #beaker {
   position: relative;
   height: 200px;
-  width: 95%;
+  width: 75%;
   border: 10px solid #6B2636;
   border-top: 0;
   border-radius: 0 0 20px 20px;
   z-index: 2000; }
-
-#beaker:before,
-#beaker:after {
-  border: 10px solid #6B2636;
-  border-bottom: 0;
-  border-radius: 30px 30px 0 0;
-  content: '';
-  height: 30px;
-  position: absolute;
-  top: -40px;
-  width: 30px;
-  z-index: 2000; }
-
-#beaker:before {
-  left: -30px;
-  top: -30px; }
-
-#beaker:after {
-  right: -30px;
-  top: -30px; }
 
 #liquid {
   position: absolute;
@@ -258,7 +238,7 @@ header {
   bottom: 0;
   height: 0px;
   overflow: hidden;
-  width: 180px;
+  width: 100%;
   transform-origin: bottom;
   animation: liquid 3s normal ease-out forwards;
   -webkit-animation-delay: 1000ms; }
@@ -368,7 +348,7 @@ header {
 
 .foam-6 {
   top: -20px;
-  left: 131px; }
+  left: 120px; }
 
 body {
   background-color: #FCDFA6; }
@@ -392,11 +372,11 @@ body {
     position: relative;
     justify-content: center;
     display: flex;
-    flex: 1 1 50%; }
+    flex: 1 1 60%; }
     .beer-card .beer-pour img {
       width: 100%; }
   .beer-card .beer-stats {
-    flex: 0 1 50%;
+    flex: 0 1 40%;
     display: flex;
     padding: 0 15px; }
     .beer-card .beer-stats tbody {
