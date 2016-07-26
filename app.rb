@@ -30,12 +30,22 @@ get("/beers/:name") do
   @style_id = @beer.first[:style][:id]
   @style_info = brewery_db.styles.find(@style_id)
   @style_description = @style_info[:description]
-  @similar_beers = brewery_db.beers.all(styleId: @style_id)
+  @similar_beers = []
+  brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
+    @similar_beers.push(item)
+    break if index == 2
+  end
+
   @srm_min = @beer.first[:style][:srm_min]
   @srm_max = @beer.first[:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
   @glass = @beer.first[:glass]
   erb(:beer)
+end
+
+post('/beers') do
+  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  redirect('/beers/'.concat(@name))
 end
 
 get('/breweries') do
