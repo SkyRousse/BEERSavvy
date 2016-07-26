@@ -13,24 +13,22 @@ get('/') do
   erb(:index)
 end
 
-get("/beers/") do
-  # @beer = brewery_db.beers.find(params.fetch('id'))
-  @beer = brewery_db.search.beers(q: 'Breakpoint' + 'IPA')
-  # @name = @beer[:name]
-  # @description = @beer[:description]
-  # @abv = @beer[:abv]
-  # @ibu = @beer[:ibu]
-  # @style = @beer[:style][:short_name]
-  # @srm_min = @beer[:style][:srm_min]
-  # @srm_max = @beer[:style][:srm_max]
-  # @glass = @beer[:glass]
+get("/beers/:name") do
+  @beer = brewery_db.beers.all(name: params.fetch('name'))
+  @name = @beer.first[:name_display]
+  @description = @beer.first[:description]
+  @abv = @beer.first[:abv]
+  @ibu = @beer.first[:ibu]
+  @style = @beer.first[:style][:short_name]
+  @srm_min = @beer.first[:style][:srm_min]
+  @srm_max = @beer.first[:style][:srm_max]
+  @glass = @beer.first[:glass]
   erb(:beer)
-  binding.pry
 end
 
 post('/beers') do
-  @id = params.fetch('beer_id')
-   redirect('/beers/'.concat(@id.to_s()))
+  @name = params.fetch('beer_name')
+  redirect('/beers/'.concat(@name))
 end
 
 get('/breweries') do
