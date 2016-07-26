@@ -1,10 +1,10 @@
-# require('spec_helper')
-#
-# describe('find a beer path', {:type => :feature}) do
-#   it('allows a user to find a beer by id') do
-#     visit('/')
-#     fill_in("beer_id", :with => "UO3PLw")
-#     click_button('Go')
-#     expect(page).to have_content("Breakside")
-#   end
-# end
+require('spec_helper')
+
+describe('find a beer path', {:type => :feature}) do
+  it('allows a user to find a beer by name') do
+    visit('/')
+    fill_in("beer_name", :with => "Aztec")
+    click_button('beer_search.btn')
+    expect(page).to have_content("Aztec")
+  end
+end
