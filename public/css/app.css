@@ -232,6 +232,27 @@ header {
   border-radius: 0 0 20px 20px;
   z-index: 2000; }
 
+.beaker-handle {
+  border: 18px solid #6B2636;
+  border-left: 0;
+  border-radius: 0 15px 15px 0;
+  content: '';
+  height: 140px;
+  position: absolute;
+  right: -45px;
+  top: 30px;
+  width: 60px;
+  z-index: 2000; }
+  .beaker-handle .rounded-inner-handle {
+    position: absolute;
+    z-index: 2001;
+    width: 23px;
+    height: 108px;
+    background: #fef6e6;
+    top: -3px;
+    right: -6px;
+    border-radius: 0 10px 10px 0; }
+
 #liquid {
   position: absolute;
   border-radius: 0 0 10px 10px;
