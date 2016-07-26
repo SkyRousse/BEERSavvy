@@ -21,9 +21,14 @@ get("/beers/:name") do
   @abv = @beer.first[:abv]
   @ibu = @beer.first[:ibu]
   @style = @beer.first[:style][:short_name]
+  @style_id = @beer.first[:style][:id]
+  @style_info = brewery_db.styles.find(@style_id)
+  @style_description = @style_info[:description]
+  @similar_beers = brewery_db.beers.all(styleId: @style_id)
   @srm_min = @beer.first[:style][:srm_min]
   @srm_max = @beer.first[:style][:srm_max]
   @glass = @beer.first[:glass]
+  binding.pry
   erb(:beer)
 end
 
