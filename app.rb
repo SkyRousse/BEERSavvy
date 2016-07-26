@@ -15,7 +15,9 @@ end
 
 
 get("/beers/:name") do
-  @beer = brewery_db.beers.all(name: params.fetch('name'))
+  @name = params.fetch('name').sub('+',' ')
+  @beer = brewery_db.beers.all(name: @name)
+  binding.pry
   @name = @beer.first[:name_display]
   @description = @beer.first[:description]
   @abv = @beer.first[:abv]
@@ -28,12 +30,11 @@ get("/beers/:name") do
   @srm_min = @beer.first[:style][:srm_min]
   @srm_max = @beer.first[:style][:srm_max]
   @glass = @beer.first[:glass]
-  binding.pry
   erb(:beer)
 end
 
 post('/beers') do
-  @name = params.fetch('beer_name')
+  @name = params.fetch('beer_name').strip!().sub(/ /,'+')
   redirect('/beers/'.concat(@name))
 end
 
