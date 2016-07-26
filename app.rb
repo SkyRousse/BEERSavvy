@@ -14,10 +14,14 @@ get('/') do
 end
 
 
+post('/beers') do
+  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  redirect('/beers/'.concat(@name))
+end
+
 get("/beers/:name") do
   @name = params.fetch('name').sub('+',' ')
   @beer = brewery_db.beers.all(name: @name)
-  binding.pry
   @name = @beer.first[:name_display]
   @description = @beer.first[:description]
   @abv = @beer.first[:abv]
@@ -32,11 +36,6 @@ get("/beers/:name") do
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
   @glass = @beer.first[:glass]
   erb(:beer)
-end
-
-post('/beers') do
-  @name = params.fetch('beer_name').strip!().sub(/ /,'+')
-  redirect('/beers/'.concat(@name))
 end
 
 get('/breweries') do
