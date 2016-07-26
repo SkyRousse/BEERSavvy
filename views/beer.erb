@@ -1,6 +1,12 @@
-<div class="">
-  <%= @beer %>
-</div>
+<!-- <div class="">
+  <p>
+    <%= @srm_avg %>
+  </p>
+  <p>
+    <%= @beer %>
+  </p>
+
+</div> -->
 
 <section id="beer-cards">
   <article class="beer-card">
@@ -18,7 +24,7 @@
               <div class="foam-6"></div>
             </div>
 
-            <div id="liquid">
+            <div id="liquid" class="srm-<%= @srm_avg %>">
 
               <div class="bubble bubble1"></div>
               <div class="bubble bubble2"></div>

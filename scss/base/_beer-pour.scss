@@ -6,19 +6,8 @@
     padding-top: 5em;
     overflow: hidden;
 }
-//
-//
-// #container {
-//   height: 370px;
-//   margin: 0 auto;
-//   overflow: hidden;
-//   position: relative;
-//   top: -20px;
-//   width: 248px;
-// }
 
 #container div {
-  // position: absolute;
   color: $red;
 }
 
@@ -41,18 +30,6 @@
   z-index: 2000;
 }
 
-// #beaker-borders {
-//   border: 10px solid $red;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   border-top: 0;
-//   border-radius: 0 0 20px 20px;
-//   z-index: 2000;
-// }
-
 #beaker:before,
 #beaker:after {
   border: 10px solid $red;
@@ -71,8 +48,6 @@
 
 #liquid {
   position: absolute;
-  background-color: #edaf32;
-  border: 10px solid #edaf32;
   border-radius: 0 0 10px 10px;
   bottom: 0;
   height: 0px;

@@ -5,7 +5,7 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
+  config.api_key = ("43506106cbd0ef9555703beb003e8141")
 end
 
 
@@ -29,6 +29,7 @@ get("/beers/:name") do
   @similar_beers = brewery_db.beers.all(styleId: @style_id)
   @srm_min = @beer.first[:style][:srm_min]
   @srm_max = @beer.first[:style][:srm_max]
+  @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
   @glass = @beer.first[:glass]
   erb(:beer)
 end
