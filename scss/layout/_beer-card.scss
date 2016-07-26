@@ -3,13 +3,15 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  max-width: 600px;
+  width: 591px;
   padding: $spacing;
   background: lighten($light-yellow, 13%);
   border-radius: 6px;
   box-shadow: 0px 0px 35px -6px rgba(51,44,35,1);
 
     .beer-pour {
+      position: relative;
+      justify-content: center;
       display: flex;
       flex: 1 1 50%;
     img {
