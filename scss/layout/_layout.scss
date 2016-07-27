@@ -1,10 +1,16 @@
 body{
   background-color: $light-yellow;
 }
-.container {
+.outer-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row wrap;
+  width: 590px;
+  margin: auto;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 @import "beer-card";

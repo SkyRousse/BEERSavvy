@@ -41,8 +41,6 @@ get("/beers/:name") do
     @all_beers.push(item)
     break if index == 3
   end
-  # @all_beers[0][:locations][0][:region]
-  # @all_beers[0][:locations][0][:locality]
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
@@ -63,9 +61,11 @@ get('/breweries/:id') do
   @beers.each_with_index do |item, index|
     @all_beers.push(item)
   end
-  binding.pry
+
+  # need to find correct values for individual beers
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
+
   erb(:brewery)
 end
