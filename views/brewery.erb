@@ -1,10 +1,17 @@
-<div class="row">
-  <div class="col-lg-6">
-    <h3> Here are all the breweries this brewery carrys <%= @brewery.name %></h3>
-  </div>
-  <div class="col-lg-6">
-    <div class="well bs-component">
-
-    </div>
-  </div>
-</div>
+<table class="beer-stats">
+  <tr>
+    <td class="label">Name</td><td><%= @brewery[0][:name] %></td>
+  </tr>
+  <tr>
+    <td class="label">Description</td><td><%= @brewery[0][:description] %></td>
+  </tr>
+  <tr>
+    <td class="label">website</td><td><%= @brewery[0][:website] %></td>
+  </tr>
+  <tr>
+    <td class="label">City</td><td><%= @brewery[0][:locations][0][:locality] %></td>
+  </tr>
+  <tr>
+    <td class="label">State</td><td><%= @brewery[0][:locations][0][:region] %></td>
+  </tr>
+</table>

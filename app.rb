@@ -5,7 +5,7 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("43506106cbd0ef9555703beb003e8141")
+  config.api_key = ("7ad2c83100277e6fe89592046aae718c")
 end
 
 
@@ -22,7 +22,13 @@ end
 get("/beers/:name") do
   @all_beers = []
   @name = params.fetch('name').sub('+',' ')
-  @all_beers.push(brewery_db.beers.all(name: @name).first)
+  @all_beers.push(brewery_db.beers.all(name: @name, withBreweries: 'Y').first)
+  @brewery = @all_beers[0][:breweries]
+  @brewery_name = @brewery[0][:name]
+  @brewery_name = @brewery[0][:description]
+  @brewery_name = @brewery[0][:website]
+  @brewery_name = @brewery[0][:locality]
+  @brewery_name = @brewery[0][:region]
   # @name = @beer.first[:name_display]
   # @description = @beer.first[:description]
   # @abv = @beer.first[:abv]
@@ -31,11 +37,10 @@ get("/beers/:name") do
   @style_id = @all_beers[0][:style][:id]
   @style_info = brewery_db.styles.find(@style_id)
   @style_description = @style_info[:description]
-  brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
+  brewery_db.beers.all(styleId: @style_id, withBreweries: 'Y').each_with_index do |item, index|
     @all_beers.push(item)
     break if index == 3
   end
-binding.pry
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
@@ -48,8 +53,9 @@ post('/beers') do
   redirect('/beers/'.concat(@name))
 end
 
-get('/breweries') do
-  @brewery = brewery_db.breweries.find('bdjbTZ')
-  @breweries = brewery_db.breweries.all(established: 2006)
-  erb(:breweries)
+get('/breweries/:id') do
+  id = params.fetch('id')
+  @brewery = brewery_db.beers.all(id: id, withBreweries: 'Y').first
+  binding.pry
+  erb(:brewery)
 end
