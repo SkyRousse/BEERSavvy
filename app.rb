@@ -20,14 +20,14 @@ post('/beers') do
 end
 
 get("/beers/:name") do
-  @err = ""
   @all_beers = []
   @name = params.fetch('name').gsub('+', ' ')
-  @all_beers.push(brewery_db.beers.all(name: @name).first)
+  @all_beers.push(brewery_db.beers.all(name: @name, withBreweries: 'Y').first)
   if @all_beers.first.nil?
     flash[:error] = 'No data returned. Try another search.'
     redirect('/')
   else
+    @brewery = @all_beers[0][:breweries]
     @style_id = @all_beers[0][:style][:id]
     @style_info = brewery_db.styles.find(@style_id)
     @style_description = @style_info[:description]
@@ -35,6 +35,7 @@ get("/beers/:name") do
       @all_beers.push(item)
       break if index == 3
     end
+binding.pry
     @srm_min = @all_beers[0][:style][:srm_min]
     @srm_max = @all_beers[0][:style][:srm_max]
     @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
@@ -48,8 +49,19 @@ post('/beers') do
   redirect('/beers/'.concat(@name))
 end
 
-get('/breweries') do
-  @brewery = brewery_db.breweries.find('bdjbTZ')
-  @breweries = brewery_db.breweries.all(established: 2006)
-  erb(:breweries)
+get('/breweries/:id') do
+  @id = params.fetch('id')
+  @all_beers = []
+  @brewery = brewery_db.breweries.find(@id)
+  @beers = brewery_db.brewery(@id).beers(withBreweries: 'Y')
+  @beers.each_with_index do |item, index|
+    @all_beers.push(item)
+  end
+
+  # need to find correct values for individual beers
+  @srm_min = @all_beers[0][:style][:srm_min]
+  @srm_max = @all_beers[0][:style][:srm_max]
+  @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
+
+  erb(:brewery)
 end

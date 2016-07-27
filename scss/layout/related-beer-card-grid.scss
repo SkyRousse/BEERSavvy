@@ -1,0 +1,37 @@
+.beer-card:nth-of-type(n+2) {
+  width: 240px;
+  height: 240px;
+  margin: 2em 1em;
+  flex: 1 1 40%;
+  padding: 0;
+  &:nth-of-type(even) {
+    margin-left: 0;
+  }
+  &:nth-of-type(odd) {
+    margin-right: 0;
+  }
+  .inner-wrapper {
+    max-width: 100%;
+    display: flex;
+    .beer-pour {
+      display: none;
+    }
+    .beer-stats {
+      flex: 1 1 100%;
+      tr {
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: $spacing;
+        }
+        td {
+          @extend %smaller-text;
+        }
+      }
+    }
+    .beer-description {
+      display: none;
+    }
+  }
+}

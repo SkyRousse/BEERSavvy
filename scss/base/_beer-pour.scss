@@ -1,13 +1,12 @@
-#container {
+.container {
     width: 75%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-top: 5em;
-    overflow: hidden;
 }
 
-#container div {
+.container div {
   color: $red;
 }
 
@@ -20,7 +19,7 @@
   border-radius: 10px
 }
 
-#beaker {
+.beaker {
   position: relative;
   height: 200px;
   width: 75%;
@@ -53,10 +52,12 @@
   }
 }
 
-#liquid {
+.liquid {
   position: absolute;
+  border-width: 0px;
+  border-style: solid;
   border-radius: 0 0 10px 10px;
-  bottom: 0;
+  bottom: 0px;
   height: 0px;
   overflow: hidden;
   width: 100%;
@@ -65,7 +66,7 @@
   -webkit-animation-delay: 1000ms;
 }
 
-#liquid:after {
+.liquid:after {
   background-color: rgba(255, 255, 255, 0.25);
   bottom: -10px;
   content: '';
@@ -77,7 +78,7 @@
   width: 110px;
 }
 
-#liquid .bubble {
+.liquid .bubble {
   -webkit-animation-name: bubble;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
@@ -90,8 +91,9 @@
 }
 
 @-webkit-keyframes liquid {
-  0% { height: 0px;}
-  100% { height: 190px;}
+  0% { height: 0px; border-width: 0; }
+  10% { border-width: 10px; }
+  100% { height: 190px; border-width: 10px; }
 }
 
 @-webkit-keyframes bubble {
@@ -140,21 +142,67 @@
 
 /* Foam */
 
+@-webkit-keyframes foam-1 {
+  0% { left: -1px; top: -20px; }
+  60% { left: -5px; top: -24px; }
+  100% { left: -14px; top: -26px; }
+}
+
+@-webkit-keyframes foam-2 {
+  0% { left: 20px; top: -35px; }
+  40% { left: 19px; top: -26px; }
+  100% { left: 14px; top: -31px; }
+}
+
+@-webkit-keyframes foam-3 {
+  0% { left: 50px; top: -25px; }
+  80% { left: 47px; top: -26px; }
+  100% { left: 40px; top: -18px; }
+}
+
+@-webkit-keyframes foam-4 {
+  0% { left: 60px; top: -22px; }
+  55% { left: 64px; top: -19px; }
+  100% { left: 65px; top: -30px; }
+}
+
+@-webkit-keyframes foam-5 {
+  0% { left: 80px; top: -35px; }
+  20% { left: 82px; top: -30px; }
+  50% { left: 84px; top: -35px; }
+  100% { left: 94px; top: -39px; }
+}
+
+@-webkit-keyframes foam-6 {
+  0% { left: 110px; top: -30px; }
+  30% { left: 112px; top: -24px; }
+  70% { left: 113px; top: -28px; }
+  100% { left: 116px; top: -22px; }
+}
+
+@-webkit-keyframes foam-7 {
+  0% { left: 120px; top: -20px; }
+  50% { left: 123px; top: -21px; }
+  100% { left: 131px; top: -28px; }
+}
+
 @-webkit-keyframes foam {
-  0% { bottom: 10px;}
-  100% { bottom: 180px;}
+  0% { opacity: 0; height: 0px; }
+  30% { opacity: .7; }
+  100% { opacity: 1; height: 190px; }
 }
 
 .beer-foam {
   position: absolute;
   bottom: 10px;
   z-index: 999;
-  animation: liquid 3s normal ease-out forwards;
-  -webkit-animation-delay: 1000ms;
+  animation: foam 3.25s normal ease-out forwards;
+  -webkit-animation-delay: 750ms;
+  opacity: 0;
 }
 
 .foam-1, .foam-2, .foam-3, .foam-4,
-.foam-5, .foam-6 {
+.foam-5, .foam-6, .foam-7 {
   float: left;
   position: absolute;
 
@@ -166,24 +214,42 @@
 .foam-1 {
   top: -20px;
   left: -1px;
+  animation: foam-1 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
 .foam-2 {
   top: -35px;
   left: 20px;
+  animation: foam-2 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
 .foam-3 {
   top: -25px;
   left: 50px;
+  animation: foam-3 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
 .foam-4 {
-  top: -35px;
-  left: 80px;
+  top: -22px;
+  left: 60px;
+  animation: foam-4 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
 .foam-5 {
-  top: -30px;
-  left: 110px;
+  top: -35px;
+  left: 80px;
+  animation: foam-5 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
 .foam-6 {
+  top: -30px;
+  left: 110px;
+  animation: foam-6 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
+}
+.foam-7 {
   top: -20px;
   left: 120px;
+  animation: foam-7 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
 }
