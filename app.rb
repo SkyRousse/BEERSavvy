@@ -5,7 +5,7 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("43506106cbd0ef9555703beb003e8141")
+  config.api_key = ("7ad2c83100277e6fe89592046aae718c")
 end
 
 
@@ -15,13 +15,13 @@ end
 
 
 post('/beers') do
-  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
   redirect('/beers/'.concat(@name))
 end
 
 get("/beers/:name") do
   @all_beers = []
-  @name = params.fetch('name').sub('+',' ')
+  @name = params.fetch('name').gsub('+',' ')
   @all_beers.push(brewery_db.beers.all(name: @name).first)
   # @name = @beer.first[:name_display]
   # @description = @beer.first[:description]
@@ -44,7 +44,7 @@ get("/beers/:name") do
 end
 
 post('/beers') do
-  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
   redirect('/beers/'.concat(@name))
 end
 
