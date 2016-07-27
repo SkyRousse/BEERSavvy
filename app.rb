@@ -20,27 +20,35 @@ post('/beers') do
 end
 
 get("/beers/:name") do
+  @err = ""
   @all_beers = []
-  @name = params.fetch('name').gsub('+',' ')
+  @name = params.fetch('name').gsub('+', ' ')
+# binding.pry
   @all_beers.push(brewery_db.beers.all(name: @name).first)
-  # @name = @beer.first[:name_display]
-  # @description = @beer.first[:description]
-  # @abv = @beer.first[:abv]
-  # @ibu = @beer.first[:ibu]
-  # @style = @beer.first[:style][:short_name]
-  @style_id = @all_beers[0][:style][:id]
-  @style_info = brewery_db.styles.find(@style_id)
-  @style_description = @style_info[:description]
-  brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
-    @all_beers.push(item)
-    break if index == 3
-  end
 binding.pry
-  @srm_min = @all_beers[0][:style][:srm_min]
-  @srm_max = @all_beers[0][:style][:srm_max]
-  @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
-  @glass = @all_beers[0][:glass]
-  erb(:beer)
+  if @all_beers.first.nil?
+    @err = 'No data returned. Try another search.'
+# binding.pry
+    erb :index
+  else
+    # @name = @beer.first[:name_display]
+    # @description = @beer.first[:description]
+    # @abv = @beer.first[:abv]
+    # @ibu = @beer.first[:ibu]
+    # @style = @beer.first[:style][:short_name]
+    @style_id = @all_beers[0][:style][:id]
+    @style_info = brewery_db.styles.find(@style_id)
+    @style_description = @style_info[:description]
+    brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
+      @all_beers.push(item)
+      break if index == 3
+    end
+    @srm_min = @all_beers[0][:style][:srm_min]
+    @srm_max = @all_beers[0][:style][:srm_max]
+    @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
+    @glass = @all_beers[0][:glass]
+    erb(:beer)
+  end
 end
 
 post('/beers') do
