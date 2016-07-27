@@ -51,7 +51,9 @@
                 Brewery
               </td>
               <td class="value brewery-name">
-                <a href="/breweries/<%= beer[:id] %>"><%= beer[:breweries][0][:name] %></a>
+  <% if false %>  <!-- DEBUG - REMOVE AFTER ADDING ERROR HANDLING FOR BREWERY  -->
+              <a href="/breweries/<%= beer[:id] %>"><%= beer[:breweries][0][:name] %></a>
+  <% end %>
               </td>
             </tr>
             <tr>

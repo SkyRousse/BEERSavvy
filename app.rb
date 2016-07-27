@@ -5,7 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("7ad2c83100277e6fe89592046aae718c")
+  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
 end
 
 
@@ -35,7 +35,7 @@ get("/beers/:name") do
       @all_beers.push(item)
       break if index == 3
     end
-binding.pry
+# binding.pry
     @srm_min = @all_beers[0][:style][:srm_min]
     @srm_max = @all_beers[0][:style][:srm_max]
     @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
