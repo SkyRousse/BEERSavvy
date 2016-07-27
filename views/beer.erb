@@ -1,11 +1,9 @@
-
 <section id="beer-name-input">
   <form action="/beers" method="post">
     <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
     <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
 </section>
-
 <% if !@all_beers.nil? %>
   <% if !@all_beers.first.nil? %>
     <% @all_beers.each do |beer| %>
@@ -13,7 +11,7 @@
         <a class="inner-wrapper" href="#">
           <figure class="beer-pour">
             <div class="container">
-              <div class="pour"></div>
+              <div class="pour srm-<%= @srm_avg %>"></div>
               <div class="beaker">
                 <div class="beaker-handle">
                   <div class="rounded-inner-handle"></div>

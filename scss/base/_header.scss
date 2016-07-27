@@ -1,9 +1,40 @@
+@-webkit-keyframes tilt {
+  0% { transform: rotate(0deg); }
+  10%, 90% { transform: rotate(45deg); }
+  100% { transform: rotate(0deg); }
+}
+
+%title {
+  font-family: $title-font-family;
+  font-size: $title-font-size;
+  letter-spacing: $title-font-spacing;
+  color: $dark-brown;
+  @include breakpoint(small-breakpoint) {
+    font-size: $title-font-size * 0.7;
+  }
+  span#tilt {
+    z-index: 5000;
+    display: inline-block;
+    transform: rotate(0deg);
+    animation: tilt 3.5s normal linear;
+    -webkit-animation-delay: 500ms;
+  }
+  span#savvy{
+    font-family: $title-italics-font-family;
+    letter-spacing: $title-italics-font-spacing;
+    font-style: italic;
+    color: $red;
+  }
+}
+
+
 header {
   @extend %outer-container;
   display: flex;
   justify-content: center;
   flex: 1 1 100%;
   h1 {
+  position: relative;
   @extend %title;
   text-align: center;
   }
