@@ -509,7 +509,7 @@ html {
     .beer-card:nth-of-type(n+2) .beer-stats tr:first-child {
       margin-top: 0; }
     .beer-card:nth-of-type(n+2) .beer-stats tr:last-child {
-      margin-bottom: 0; }
+      margin-bottom: 15px; }
   .beer-card:nth-of-type(n+2) .beer-description {
     display: none; }
 
