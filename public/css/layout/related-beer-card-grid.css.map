@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,0BAA2B;EACzB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,GAAG;EACX,qCAAW;IACT,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,IAAI;IACZ,gDAAW;MACT,OAAO,EAAE,IAAI;IAEf,iDAAY;MACV,IAAI,EAAE,QAAQ",
+"sources": ["../../../scss/layout/related-beer-card-grid.scss"],
+"names": [],
+"file": "related-beer-card-grid.css"
+}
