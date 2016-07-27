@@ -21,7 +21,6 @@ end
 
 get("/beers/:name") do
   @all_beers = []
-<<<<<<< HEAD
   @name = params.fetch('name').gsub('+',' ')
   @all_beers.push(brewery_db.beers.all(name: @name, withBreweries: 'Y').first)
   @brewery = @all_beers[0][:breweries]
