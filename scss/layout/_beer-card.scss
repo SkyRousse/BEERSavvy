@@ -1,3 +1,8 @@
+#home {
+  @extend %bigger-text;
+  margin-bottom: $spacing;
+}
+
 .beer-card {
   .inner-wrapper {
     @extend %outer-container;
@@ -21,6 +26,9 @@
       }
     }
     .beer-stats {
+      a {
+        text-decoration: underline;
+      }
       flex: 0 1 40%;
       display: flex;
       padding: 0 $spacing;

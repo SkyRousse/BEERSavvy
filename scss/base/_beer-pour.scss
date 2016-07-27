@@ -4,7 +4,6 @@
     justify-content: flex-start;
     align-items: center;
     padding-top: 5em;
-    overflow: hidden;
 }
 
 .container div {
@@ -146,39 +145,45 @@
 @-webkit-keyframes foam-1 {
   0% { left: -1px; top: -20px; }
   60% { left: -5px; top: -24px; }
-  100% { left: -9px; top: -18px; }
+  100% { left: -14px; top: -26px; }
 }
 
 @-webkit-keyframes foam-2 {
   0% { left: 20px; top: -35px; }
-  40% { left: 19px; top: -31px; }
-  100% { left: 17px; top: -36px; }
+  40% { left: 19px; top: -26px; }
+  100% { left: 14px; top: -31px; }
 }
 
 @-webkit-keyframes foam-3 {
   0% { left: 50px; top: -25px; }
   80% { left: 47px; top: -26px; }
-  100% { left: 45px; top: -21px; }
+  100% { left: 40px; top: -18px; }
 }
 
 @-webkit-keyframes foam-4 {
-  0% { left: 80px; top: -35px; }
-  20% { left: 82px; top: -30px; }
-  50% { left: 84px; top: -35px; }
-  100% { left: 86px; top: -32px; }
+  0% { left: 60px; top: -22px; }
+  55% { left: 64px; top: -19px; }
+  100% { left: 65px; top: -30px; }
 }
 
 @-webkit-keyframes foam-5 {
-  0% { left: 110px; top: -30px; }
-  30% { left: 112px; top: -24px; }
-  70% { left: 113px; top: -28px; }
-  100% { left: 116px; top: -32px; }
+  0% { left: 80px; top: -35px; }
+  20% { left: 82px; top: -30px; }
+  50% { left: 84px; top: -35px; }
+  100% { left: 94px; top: -39px; }
 }
 
 @-webkit-keyframes foam-6 {
+  0% { left: 110px; top: -30px; }
+  30% { left: 112px; top: -24px; }
+  70% { left: 113px; top: -28px; }
+  100% { left: 116px; top: -22px; }
+}
+
+@-webkit-keyframes foam-7 {
   0% { left: 120px; top: -20px; }
   50% { left: 123px; top: -21px; }
-  100% { left: 127px; top: -25px; }
+  100% { left: 131px; top: -28px; }
 }
 
 @-webkit-keyframes foam {
@@ -197,7 +202,7 @@
 }
 
 .foam-1, .foam-2, .foam-3, .foam-4,
-.foam-5, .foam-6 {
+.foam-5, .foam-6, .foam-7 {
   float: left;
   position: absolute;
 
@@ -225,20 +230,26 @@
   -webkit-animation-delay: 1000ms;
 }
 .foam-4 {
-  top: -35px;
-  left: 80px;
+  top: -22px;
+  left: 60px;
   animation: foam-4 3s normal ease-out forwards;
   -webkit-animation-delay: 1000ms;
 }
 .foam-5 {
-  top: -30px;
-  left: 110px;
+  top: -35px;
+  left: 80px;
   animation: foam-5 3s normal ease-out forwards;
   -webkit-animation-delay: 1000ms;
 }
 .foam-6 {
+  top: -30px;
+  left: 110px;
+  animation: foam-6 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
+}
+.foam-7 {
   top: -20px;
   left: 120px;
-  animation: foam-6 3s normal ease-out forwards;
+  animation: foam-7 3s normal ease-out forwards;
   -webkit-animation-delay: 1000ms;
 }

@@ -61,6 +61,5 @@ get('/breweries/:id') do
   @beers.each_with_index do |item, index|
     @all_beers.push(item)
   end
-  binding.pry
   erb(:brewery)
 end
