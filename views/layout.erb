@@ -14,6 +14,9 @@
       <header>
         <h1>BEER<span>Savvy</span></h1>
       </header>
+      <% if flash[:error] %>
+        <%= flash[:error] %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

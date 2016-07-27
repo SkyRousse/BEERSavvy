@@ -1,8 +1,8 @@
 require('bundler/setup')
 require('pry')
 Bundler.require(:default)
-
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
+enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
   config.api_key = ("7ad2c83100277e6fe89592046aae718c")
@@ -10,7 +10,7 @@ end
 
 
 get('/') do
-  erb(:index)
+  erb(:beer)
 end
 
 
@@ -23,19 +23,11 @@ get("/beers/:name") do
   @err = ""
   @all_beers = []
   @name = params.fetch('name').gsub('+', ' ')
-# binding.pry
   @all_beers.push(brewery_db.beers.all(name: @name).first)
-binding.pry
   if @all_beers.first.nil?
-    @err = 'No data returned. Try another search.'
-# binding.pry
-    erb :index
+    flash[:error] = 'No data returned. Try another search.'
+    redirect('/')
   else
-    # @name = @beer.first[:name_display]
-    # @description = @beer.first[:description]
-    # @abv = @beer.first[:abv]
-    # @ibu = @beer.first[:ibu]
-    # @style = @beer.first[:style][:short_name]
     @style_id = @all_beers[0][:style][:id]
     @style_info = brewery_db.styles.find(@style_id)
     @style_description = @style_info[:description]

@@ -1,70 +1,88 @@
-<% @all_beers.each do |beer| %>
-  <section id="beer-cards">
-    <article class="beer-card">
-      <figure class="beer-pour">
-        <div id="container">
-          <div class="pour"></div>
-          <div id="beaker">
-            <div class="beaker-handle">
-              <div class="rounded-inner-handle"></div>
-            </div>
-            <div class="beer-foam">
-              <div class="foam-1"></div>
-              <div class="foam-2"></div>
-              <div class="foam-3"></div>
-              <div class="foam-4"></div>
-              <div class="foam-5"></div>
-              <div class="foam-6"></div>
-            </div>
 
-            <div id="liquid" class="srm-<%= @srm_avg %>">
+<section id="beer-name-input">
+  <form action="/beers" method="post">
+    <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
+    <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+</section>
 
-              <div class="bubble bubble1"></div>
-              <div class="bubble bubble2"></div>
-              <div class="bubble bubble3"></div>
-              <div class="bubble bubble4"></div>
-              <div class="bubble bubble5"></div>
-            </div>
-          </div>
-        </div>
-      </figure>
-      <table class="beer-stats">
-        <tr>
-          <td class="label">
-            Name
-          </td>
-          <td class="value beer-name">
-            <%= beer[:name_display] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            Style
-          </td>
-          <td class="value beer-style">
-            <%= beer[:style][:short_name] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            IBU
-          </td>
-          <td class="value beer-ibu">
-            <%= beer[:ibu] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            ABV
-          </td>
-          <td class="value beer-abv">
-            <%= beer[:abv] %>%
-          </td>
-        </tr>
-      </table>
-      <p class="beer-description">
-        <%= beer[:description] %>
-      </p>
-    </article>
-  </section>
+<% if @err %>
+<p>
+  <%= @err %>
+</p>
 <% end %>
+
+<% if !@all_beers.nil? %>
+  <% if !@all_beers.first.nil? %>
+    <% @all_beers.each do |beer| %>
+      <section id="beer-cards">
+        <article class="beer-card">
+          <figure class="beer-pour">
+            <div id="container">
+              <div class="pour"></div>
+              <div id="beaker">
+                <div class="beaker-handle">
+                  <div class="rounded-inner-handle"></div>
+                </div>
+                <div class="beer-foam">
+                  <div class="foam-1"></div>
+                  <div class="foam-2"></div>
+                  <div class="foam-3"></div>
+                  <div class="foam-4"></div>
+                  <div class="foam-5"></div>
+                  <div class="foam-6"></div>
+                </div>
+
+                <div id="liquid" class="srm-<%= @srm_avg %>">
+
+                  <div class="bubble bubble1"></div>
+                  <div class="bubble bubble2"></div>
+                  <div class="bubble bubble3"></div>
+                  <div class="bubble bubble4"></div>
+                  <div class="bubble bubble5"></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <table class="beer-stats">
+            <tr>
+              <td class="label">
+                Name
+              </td>
+              <td class="value beer-name">
+                <%= beer[:name_display] %>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                Style
+              </td>
+              <td class="value beer-style">
+                <%= beer[:style][:short_name] %>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                IBU
+              </td>
+              <td class="value beer-ibu">
+                <%= beer[:ibu] %>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                ABV
+              </td>
+              <td class="value beer-abv">
+                <%= beer[:abv] %>%
+              </td>
+            </tr>
+          </table>
+          <p class="beer-description">
+            <%= beer[:description] %>
+          </p>
+        </article>
+      </section>
+    <% end %>
+  <% end %>
+<% end %>  
