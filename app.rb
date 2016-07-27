@@ -41,6 +41,8 @@ get("/beers/:name") do
     @all_beers.push(item)
     break if index == 3
   end
+  # @all_beers[0][:locations][0][:region]
+  # @all_beers[0][:locations][0][:locality]
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
@@ -54,8 +56,13 @@ post('/beers') do
 end
 
 get('/breweries/:id') do
-  id = params.fetch('id')
-  # @brewery = brewery_db.beers.all(id: id, withBreweries: 'Y').first
-  # binding.pry
+  @id = params.fetch('id')
+  @all_beers = []
+  @brewery = brewery_db.breweries.find(@id)
+  @beers = brewery_db.brewery(@id).beers(withBreweries: 'Y')
+  @beers.each_with_index do |item, index|
+    @all_beers.push(item)
+  end
+  binding.pry
   erb(:brewery)
 end
