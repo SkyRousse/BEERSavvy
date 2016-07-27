@@ -1,24 +1,35 @@
 /*
 Error: Undefined variable: "$spacing".
-        on line 23 of scss/layout/related-beer-card-grid.scss
+        on line 26 of scss/layout/related-beer-card-grid.scss
 
-18:     tr {
-19:       &:first-child {
-20:         margin-top: 0;
-21:       }
-22:       &:last-child {
-23:         margin-bottom: $spacing;
-24:       }
-25:       td {
-26:         @extend %smaller-text;
-27:       }
-28:     }
+21:       tr {
+22:         &:first-child {
+23:           margin-top: 0;
+24:         }
+25:         &:last-child {
+26:           margin-bottom: $spacing;
+27:         }
+28:         td {
+29:           @extend %smaller-text;
+30:         }
+31:       }
 
 Backtrace:
-scss/layout/related-beer-card-grid.scss:23
+scss/layout/related-beer-card-grid.scss:26
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
@@ -101,4 +112,4 @@ scss/layout/related-beer-card-grid.scss:23
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$spacing\".\A         on line 23 of scss/layout/related-beer-card-grid.scss\A \A 18:     tr {\A 19:       &:first-child {\A 20:         margin-top: 0;\A 21:       }\A 22:       &:last-child {\A 23:         margin-bottom: $spacing;\A 24:       }\A 25:       td {\A 26:         @extend %smaller-text;\A 27:       }\A 28:     }"; }
+  content: "Error: Undefined variable: \"$spacing\".\A         on line 26 of scss/layout/related-beer-card-grid.scss\A \A 21:       tr {\A 22:         &:first-child {\A 23:           margin-top: 0;\A 24:         }\A 25:         &:last-child {\A 26:           margin-bottom: $spacing;\A 27:         }\A 28:         td {\A 29:           @extend %smaller-text;\A 30:         }\A 31:       }"; }

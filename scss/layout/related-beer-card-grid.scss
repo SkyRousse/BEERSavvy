@@ -10,24 +10,28 @@
   &:nth-of-type(odd) {
     margin-right: 0;
   }
-  .beer-pour {
-    display: none;
-  }
-  .beer-stats {
-    flex: 1 1 100%;
-    tr {
-      &:first-child {
-        margin-top: 0;
-      }
-      &:last-child {
-        margin-bottom: $spacing;
-      }
-      td {
-        @extend %smaller-text;
+  .inner-wrapper {
+    max-width: 100%;
+    display: flex;
+    .beer-pour {
+      display: none;
+    }
+    .beer-stats {
+      flex: 1 1 100%;
+      tr {
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: $spacing;
+        }
+        td {
+          @extend %smaller-text;
+        }
       }
     }
-  }
-  .beer-description {
-    display: none;
+    .beer-description {
+      display: none;
+    }
   }
 }
