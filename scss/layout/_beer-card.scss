@@ -1,5 +1,6 @@
 .beer-card {
   @extend %outer-container;
+  flex: 1 1 100%;
   margin-bottom: 3em;
   display: flex;
   flex-flow: row wrap;
