@@ -55,7 +55,7 @@ end
 
 get('/breweries/:id') do
   id = params.fetch('id')
-  @brewery = brewery_db.beers.all(id: id, withBreweries: 'Y').first
-  binding.pry
+  # @brewery = brewery_db.beers.all(id: id, withBreweries: 'Y').first
+  # binding.pry
   erb(:brewery)
 end
