@@ -1,0 +1,38 @@
+
+<form action='/result' method="post">
+
+  <label for="query">Select a Query</label>
+  <select id='query' name='query' type='text'>
+      <option value="brewery_db.beers.all(abv: '5.5')"> beers.all(abv: '5.5') </option>
+      <option value="brewery_db.beers.all(abv: '5.5')"> beers.all(abv: '5.5') </option>
+      <option value="brewery_db.beers.find('vYlBZQ')"> beers.find('vYlBZQ') </option>
+      <option value="brewery_db.beers.random"> beers.random </option>
+      <option value="brewery_db.breweries.all(established: 2006)"> breweries.all(established: 2006) </option>
+      <option value="brewery_db.breweries.find('d1zSa7')"> breweries.find('d1zSa7') </option>
+      <option value="brewery_db.brewery('d1zSa7').beers"> brewery('d1zSa7').beers </option>
+      <option value="brewery_db.categories.all"> categories.all </option>
+      <option value="brewery_db.categories.find(1)"> categories.find(1) </option>
+      <option value="brewery_db.fermentables.all(country: 'Brazil')"> fermentables.all(country: 'Brazil') </option>
+      <option value="brewery_db.fermentables.find(1924)"> fermentables.find(1924) </option>
+      <option value="brewery_db.fluid_size.all"> fluid_size.all </option>
+      <option value="brewery_db.fluid_size.find(1)"> fluid_size.find(1) </option>
+      <option value="brewery_db.glassware.all"> glassware.all </option>
+      <option value="brewery_db.glassware.find(1)"> glassware.find(1) </option>
+      <option value="brewery_db.hops.all"> hops.all </option>
+      <option value="brewery_db.hops.find(1)"> hops.find(1) </option>
+      <option value="brewery_db.search.all(q: 'IPA')"> search.all(q: 'IPA') </option>
+      <option value="brewery_db.search.beers(q: 'IPA')"> search.beers(q: 'IPA') </option>
+      <option value="brewery_db.search.breweries(q: 'IPA')"> search.breweries(q: 'IPA') </option>
+      <option value="brewery_db.search.guilds(q: 'IPA')"> search.guilds(q: 'IPA') </option>
+      <option value="brewery_db.search.events(q: 'IPA')"> search.events(q: 'IPA') </option>
+      <option value="brewery_db.search.upc(code: '030613000043')"> search.upc(code: '030613000043') </option>
+      <option value="brewery_db.styles.all"> styles.all </option>
+      <option value="brewery_db.styles.find(1)"> styles.find(1) </option>
+      <option value="brewery_db.locations.all(locality: 'San Francisco')"> locations.all(locality: 'San Francisco') </option>
+      <option value="brewery_db.yeasts.all"> yeasts.all </option>
+      <option value="brewery_db.yeasts.find(1836)"> yeasts.find(1836) </option>
+      <option value="brewery_db.menu.beer_availability"> menu.beer_availability </option>
+
+  </select>
+  <button type="submit">Select Query</button>
+</form>
