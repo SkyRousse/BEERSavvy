@@ -15,13 +15,13 @@ end
 
 
 post('/beers') do
-  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
   redirect('/beers/'.concat(@name))
 end
 
 get("/beers/:name") do
   @all_beers = []
-  @name = params.fetch('name').sub('+',' ')
+  @name = params.fetch('name').gsub('+',' ')
   @all_beers.push(brewery_db.beers.all(name: @name).first)
   # @name = @beer.first[:name_display]
   # @description = @beer.first[:description]
@@ -44,7 +44,7 @@ binding.pry
 end
 
 post('/beers') do
-  @name = params.fetch('beer_name').strip.sub(/ /,'+')
+  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
   redirect('/beers/'.concat(@name))
 end
 
