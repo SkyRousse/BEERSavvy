@@ -35,7 +35,6 @@ get("/beers/:name") do
     @all_beers.push(item)
     break if index == 3
   end
-binding.pry
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2

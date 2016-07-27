@@ -166,6 +166,11 @@ header, #beer-name-input, #beer-name-input form, .beer-card {
   font-family: "Roboto", sans-serif;
   font-size: 16px; }
 
+.beer-cards:nth-child(n+1) .beer-card .beer-stats tr td {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1; }
+
 header h1 {
   font-family: "Nunito", sans-serif;
   font-size: 120px;
@@ -495,5 +500,12 @@ html {
       display: none; }
     .beer-cards:nth-child(n+1) .beer-card .beer-stats {
       flex: 1 1 100%; }
+      .beer-cards:nth-child(n+1) .beer-card .beer-stats tr {
+        padding-bottom: 7.5px;
+        height: 30px; }
+        .beer-cards:nth-child(n+1) .beer-card .beer-stats tr:first-child {
+          margin-top: 0; }
+        .beer-cards:nth-child(n+1) .beer-card .beer-stats tr:last-child {
+          margin-bottom: 0; }
 
 /*# sourceMappingURL=app.css.map */

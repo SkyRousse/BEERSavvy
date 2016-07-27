@@ -10,6 +10,19 @@
     }
     .beer-stats {
       flex: 1 1 100%;
+      tr {
+        padding-bottom: $spacing / 2;
+        height: $spacing * 2;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        td {
+          @extend %smaller-text;
+        }
+      }
     }
   }
 }
