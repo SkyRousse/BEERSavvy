@@ -41,19 +41,3 @@
   font-size: $bigger-font-size;
   line-height: $base-line-height;
 };
-
-%title {
-  font-family: $title-font-family;
-  font-size: $title-font-size;
-  letter-spacing: $title-font-spacing;
-  color: $dark-brown;
-  @include breakpoint(small-breakpoint) {
-    font-size: $title-font-size * 0.7;
-  }
-  span {
-    font-family: $title-italics-font-family;
-    letter-spacing: $title-italics-font-spacing;
-    font-style: italic;
-    color: $red;
-  }
-}
