@@ -1,12 +1,11 @@
-<a href="/breweries/<%= @brewery[0][:id] %>"><%= @brewery[0][:name] %></a>
-
+<a id="home" href="/"><< Search again</a>
 <% @all_beers.each do |beer| %>
-  <section id="beer-cards">
-    <article class="beer-card">
+  <article class="beer-card">
+    <a class="inner-wrapper" href="#">
       <figure class="beer-pour">
-        <div id="container">
+        <div class="container">
           <div class="pour"></div>
-          <div id="beaker">
+          <div class="beaker">
             <div class="beaker-handle">
               <div class="rounded-inner-handle"></div>
             </div>
@@ -17,10 +16,9 @@
               <div class="foam-4"></div>
               <div class="foam-5"></div>
               <div class="foam-6"></div>
+              <div class="foam-7"></div>
             </div>
-
-            <div id="liquid" class="srm-<%= @srm_avg %>">
-
+            <div class="liquid srm-<%= @srm_avg %>">
               <div class="bubble bubble1"></div>
               <div class="bubble bubble2"></div>
               <div class="bubble bubble3"></div>
@@ -41,10 +39,18 @@
         </tr>
         <tr>
           <td class="label">
+            Brewery
+          </td>
+          <td class="value brewery-name">
+            <a href="/breweries/<%= beer[:id] %>"><%= beer[:breweries][0][:name] %></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">
             Style
           </td>
           <td class="value beer-style">
-            <%= beer[:style][:short_name] %>
+            <span class="tooltip--triangle" data-tooltip="<%= beer[:style][:description] %>"><%= beer[:style][:short_name] %></span>
           </td>
         </tr>
         <tr>
@@ -67,6 +73,6 @@
       <p class="beer-description">
         <%= beer[:description] %>
       </p>
-    </article>
-  </section>
+    </a>
+  </article>
 <% end %>
