@@ -5,7 +5,7 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("43506106cbd0ef9555703beb003e8141")
+  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
 end
 
 

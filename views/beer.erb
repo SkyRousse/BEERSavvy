@@ -38,8 +38,8 @@
         <td class="label">
           Style
         </td>
-        <td class="value beer-style tooltip--triangle" data-tooltip="<%= beer[:style][:description] %>" >
-          <%= beer[:style][:short_name] %>
+        <td class="value beer-style">
+          <span class="tooltip--triangle" data-tooltip="<%= beer[:style][:description] %>"><%= beer[:style][:short_name] %></span>
         </td>
       </tr>
       <tr>
@@ -62,6 +62,5 @@
     <p class="beer-description">
       <%= beer[:description] %>
     </p>
-    </div>
   </article>
 <% end %>

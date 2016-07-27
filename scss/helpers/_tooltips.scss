@@ -1,6 +1,10 @@
-[class^="tooltip"] {
+$cubic: cubic-bezier(.64,.09,.08,1);
+
+.tooltip--triangle {
   position: relative;
+  border-bottom: 1px grey dashed;
   &:after {
+    flex-grow: 1;
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -11,10 +15,13 @@
     transform: translateX(-50%) translateY(-2px);
     background: grey;
     color: white;
-    white-space: nowrap;
-    z-index: 2;
+    white-space: wrap;
+    width: 700px;
+    text-overflow: scroll;
+    z-index: 3000;
     border-radius: 2px;
     transition: opacity 0.2s $cubic, transform 0.2s $cubic;
+    text-align: left;
   }
   &:hover {
     &:after {
