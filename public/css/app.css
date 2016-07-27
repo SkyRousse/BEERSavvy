@@ -176,20 +176,6 @@ header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper {
   font-size: 21px;
   line-height: 1; }
 
-header h1 {
-  font-family: "Nunito", sans-serif;
-  font-size: 120px;
-  letter-spacing: -12px;
-  color: #332c23; }
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 84px; } }
-  header h1 span {
-    font-family: "Pattaya", sans-serif;
-    letter-spacing: -5px;
-    font-style: italic;
-    color: #6B2636; }
-
 .tooltip--triangle {
   position: relative;
   border-bottom: 1px grey dashed; }
@@ -239,11 +225,39 @@ header h1 {
   visibility: visible;
   transform: translateX(-50%) translateY(0); }
 
+@-webkit-keyframes tilt {
+  0% {
+    transform: rotate(0deg); }
+  10%, 90% {
+    transform: rotate(45deg); }
+  100% {
+    transform: rotate(0deg); } }
+header h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 120px;
+  letter-spacing: -12px;
+  color: #332c23; }
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 84px; } }
+  header h1 span#tilt {
+    z-index: 5000;
+    display: inline-block;
+    transform: rotate(0deg);
+    animation: tilt 3.5s normal linear;
+    -webkit-animation-delay: 500ms; }
+  header h1 span#savvy {
+    font-family: "Pattaya", sans-serif;
+    letter-spacing: -5px;
+    font-style: italic;
+    color: #6B2636; }
+
 header {
   display: flex;
   justify-content: center;
   flex: 1 1 100%; }
   header h1 {
+    position: relative;
     text-align: center; }
 
 #beer-name-input {
@@ -274,13 +288,23 @@ header {
 .container div {
   color: #6B2636; }
 
+@-webkit-keyframes pour {
+  0% {
+    height: 0px; }
+  10%, 90% {
+    height: 445px; }
+  100% {
+    height: 0px; } }
 .pour {
   position: absolute;
-  left: 45%;
-  width: 20px;
+  left: 80px;
+  top: -120px;
+  width: 18px;
   height: 0px;
-  background-color: #edaf32;
-  border-radius: 10px; }
+  border-radius: 10px;
+  animation: pour 3s normal ease-out forwards;
+  -webkit-animation-delay: 1000ms;
+  z-index: 0; }
 
 .beaker {
   position: relative;
