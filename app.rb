@@ -5,7 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("fef981024ebb8b79b69f3ef9827b166b")
+  config.api_key = ("7ad2c83100277e6fe89592046aae718c")
 end
 
 get('/') do

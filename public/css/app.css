@@ -250,6 +250,14 @@ header {
     position: relative;
     text-align: center; }
 
+h2.section-header {
+  width: 100%;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 60px;
+  letter-spacing: -6px;
+  text-transform: uppercase; }
+
 #beer-name-input {
   width: 100%;
   margin: 2em 0;
