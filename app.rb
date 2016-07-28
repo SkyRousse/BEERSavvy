@@ -5,7 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("fef981024ebb8b79b69f3ef9827b166b")
+  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
 end
 
 get('/') do
@@ -57,7 +57,6 @@ get('/breweries/:id') do
   @all_beers = []
   @brewery = brewery_db.breweries.find(@id)
   @beers = brewery_db.brewery(@id).beers(withBreweries: 'Y')
-
   @beers.each_with_index do |item, index|
     if [:description, :name_display, :style, :ibu, :abv].all? {|key| item.has_key? key}
       if [:id, :srm_min, :srm_max, :short_name, :description].all? {|key| item[:style].has_key? key}

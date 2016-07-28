@@ -1,25 +1,10 @@
-<<<<<<< HEAD
 <section id="beer-name-input">
   <form action="/beers" method="post">
     <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
     <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
 </section>
-<h2>DUMMY BREWERY NAME</h2>
-=======
-<table class="beer-stats">
-  <tr>
-    <td class="label">Name</td><td><%= @brewery[:name] %></td>
-  </tr>
-  <tr>
-    <td class="label">Description</td><td><%= @brewery[:description] %></td>
-  </tr>
-  <tr>
-    <td class="label">website</td><td><%= @brewery[:website] %></td>
-  </tr>
-</table>
-
->>>>>>> master
+<h2><%= @brewery[:name] %></h2>
 <% @all_beers.each do |beer| %>
 <article class="beer-card">
   <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
@@ -62,12 +47,13 @@
         <td class="label">
           Brewery
         </td>
+
         <td class="value brewery-name tooltip">
-          <a href="#">Dummy Brewery Name</a>
+          <a href="#"><%= @brewery[:name] %></a>
           <div class="tooltip-info">
             <ul>
-              <li><a href="#">Dummy Brewery Website</a></li>
-              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                <li><a href="/breweries/<%= @brewery[:website] %>"><%= @brewery[:website] %></a></li>
+              <li><%= @brewery[:description] %></li>
             </ul>
           </div>
         </td>
@@ -79,7 +65,7 @@
         <td class="value beer-style tooltip">
           <span><%= beer[:style][:short_name] %></span>
           <div class="tooltip-info">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <%= beer[:style][:description] %>
           </div>
         </td>
       </tr>
@@ -105,5 +91,5 @@
     </p>
   </a>
 </article>
-<h3>Related Beers</h3>
+<!-- <h3>Related Beers</h3> -->
 <% end %>
