@@ -1,16 +1,16 @@
 body{
-  background-color: $light-yellow;
-}
-.outer-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  width: 590px;
-  margin: auto;
-}
+    background-color: $light-yellow;
+    
+  .outer-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 590px;
+    margin: auto;
+  }
 
-a, a:visited {
-  text-decoration: none;
-  color: inherit;
+  a, a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 }
-
 @import "beer-card";
