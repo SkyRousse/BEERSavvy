@@ -8,11 +8,9 @@ brewery_db = BreweryDB::Client.new do |config|
   config.api_key = ("fef981024ebb8b79b69f3ef9827b166b")
 end
 
-
 get('/') do
   erb(:beer)
 end
-
 
 post('/beers') do
   @name = params.fetch('beer_name').strip.gsub(/ /,'+')
@@ -31,15 +29,20 @@ get("/beers/:name") do
     @style_id = @all_beers[0][:style][:id]
     @style_info = brewery_db.styles.find(@style_id)
     @style_description = @style_info[:description]
-    brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
-      @all_beers.push(item)
-      break if index == 3
+    @related_beers = brewery_db.beers.all(styleId: @style_id, withBreweries: 'Y')
+    @related_beers.each_with_index do |item, index|
+
+    if [:breweries, :description, :name_display, :style, :ibu, :abv].all? {|key| item.has_key? key}
+      if [:id, :srm_min, :srm_max, :short_name, :description].all? {|key| item[:style].has_key? key}
+        @all_beers.push(item)
+      end
     end
-# binding.pry
+
+    break if @all_beers.size >= 5
+    end
     @srm_min = @all_beers[0][:style][:srm_min]
     @srm_max = @all_beers[0][:style][:srm_max]
     @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
-    @glass = @all_beers[0][:glass]
     erb(:beer)
   end
 end
@@ -54,8 +57,13 @@ get('/breweries/:id') do
   @all_beers = []
   @brewery = brewery_db.breweries.find(@id)
   @beers = brewery_db.brewery(@id).beers(withBreweries: 'Y')
+
   @beers.each_with_index do |item, index|
-    @all_beers.push(item)
+    if [:description, :name_display, :style, :ibu, :abv].all? {|key| item.has_key? key}
+      if [:id, :srm_min, :srm_max, :short_name, :description].all? {|key| item[:style].has_key? key}
+        @all_beers.push(item)
+      end
+    end
   end
 
   # need to find correct values for individual beers

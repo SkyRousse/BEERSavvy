@@ -1,19 +1,21 @@
 body{
-  background-color: $light-yellow;
-}
-.outer-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  width: 590px;
-  margin: auto;
-}
+    background-color: $light-yellow;
 
-a, a:visited {
-  text-decoration: none;
-  color: inherit;
+  .outer-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 590px;
+    margin: auto;
+  }
+
+  a, a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 #beer-name-input {
   margin-top: 120px;
 }
+
 @import "beer-card";

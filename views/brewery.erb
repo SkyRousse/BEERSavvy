@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section id="beer-name-input">
   <form action="/beers" method="post">
     <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
@@ -5,6 +6,20 @@
   </form>
 </section>
 <h2>DUMMY BREWERY NAME</h2>
+=======
+<table class="beer-stats">
+  <tr>
+    <td class="label">Name</td><td><%= @brewery[:name] %></td>
+  </tr>
+  <tr>
+    <td class="label">Description</td><td><%= @brewery[:description] %></td>
+  </tr>
+  <tr>
+    <td class="label">website</td><td><%= @brewery[:website] %></td>
+  </tr>
+</table>
+
+>>>>>>> master
 <% @all_beers.each do |beer| %>
 <article class="beer-card">
   <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
