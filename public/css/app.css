@@ -553,6 +553,8 @@ a, a:visited {
 #home {
   margin-bottom: 15px; }
 
+.beer-card:first-of-type .inner-wrapper {
+  background: #fef6e6; }
 .beer-card .inner-wrapper {
   flex: 1 1 100%;
   margin-bottom: 3em;
@@ -561,7 +563,6 @@ a, a:visited {
   justify-content: space-between;
   width: 591px;
   padding: 15px;
-  background: #fef6e6;
   border-radius: 6px;
   box-shadow: 0px 0px 35px -6px #332c23; }
   .beer-card .inner-wrapper .beer-pour {
