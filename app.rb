@@ -5,7 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
+  config.api_key = ("7ad2c83100277e6fe89592046aae718c")
 end
 
 get('/') do
@@ -64,11 +64,41 @@ get('/breweries/:id') do
       end
     end
   end
-
+# binding.pry
   # need to find correct values for individual beers
   @srm_min = @all_beers[0][:style][:srm_min]
   @srm_max = @all_beers[0][:style][:srm_max]
   @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
 
   erb(:brewery)
+end
+
+post('/random') do
+  count = 1
+  begin
+    returned = brewery_db.beers.random
+    # binding.pry
+    puts "top - returned[:name] - #{returned[:name]}"
+    if ((returned[:name] =~ /\W /).nil?)
+      @name = returned[:name].strip.gsub(/ /,'+')
+      # binding.pry
+    end
+    count += 1
+    puts count.to_s
+  end until count == 3
+
+  if !@name.nil?
+    puts "/beers/#{@name}"
+    redirect("/beers/#{@name}")
+  else
+    puts "/" + "returned[:name] - #{returned[:name]}"
+    redirect '/'
+  end
+  # binding.pry
+  # @name = temp[:name]  count += 1
+  # @name = brewery_db.beers.random[:name]
+  # @name = return.strip
+  # @name = params.fetch('beer_name').strip.gsub(/ /,'+')
+  # redirect("/beers/#{@name}")
+  # redirect ""
 end
