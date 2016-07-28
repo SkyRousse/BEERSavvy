@@ -67,9 +67,9 @@ get('/breweries/:id') do
   end
 
   # need to find correct values for individual beers
-  # @srm_min = @all_beers[0][:style][:srm_min]
-  # @srm_max = @all_beers[0][:style][:srm_max]
-  # @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
+  @srm_min = @all_beers[0][:style][:srm_min]
+  @srm_max = @all_beers[0][:style][:srm_max]
+  @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
 
   erb(:brewery)
 end
