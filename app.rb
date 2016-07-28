@@ -78,27 +78,19 @@ post('/random') do
   begin
     returned = brewery_db.beers.random
     # binding.pry
-    puts "top - returned[:name] - #{returned[:name]}"
+    # puts "top - returned[:name] - #{returned[:name]}"
     if ((returned[:name] =~ /\W /).nil?)
       @name = returned[:name].strip.gsub(/ /,'+')
-      # binding.pry
+      break
     end
     count += 1
-    puts count.to_s
+    # puts count.to_s
   end until count == 3
-
-  if !@name.nil?
-    puts "/beers/#{@name}"
+  if !(@name.nil?)
+    # puts "/beers/#{@name}"
     redirect("/beers/#{@name}")
   else
-    puts "/" + "returned[:name] - #{returned[:name]}"
+    # puts "/" + "returned[:name] - #{returned[:name]}"
     redirect '/'
   end
-  # binding.pry
-  # @name = temp[:name]  count += 1
-  # @name = brewery_db.beers.random[:name]
-  # @name = return.strip
-  # @name = params.fetch('beer_name').strip.gsub(/ /,'+')
-  # redirect("/beers/#{@name}")
-  # redirect ""
 end
