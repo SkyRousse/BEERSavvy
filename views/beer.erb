@@ -7,7 +7,6 @@
 <h2 class="section-header">Here's your beer</h2>
 <% if !@all_beers.nil? %>
   <% if !@all_beers.first.nil? %>
-  <h2>Beers</h2>
     <% @all_beers.each do |beer| %>
       <article class="beer-card">
         <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
@@ -43,7 +42,7 @@
                 Name
               </td>
               <td class="value beer-name">
-                <%= beer[:name_display] %>
+                <a href="#"><%= beer[:name_display] %></a>
               </td>
             </tr>
             <tr>

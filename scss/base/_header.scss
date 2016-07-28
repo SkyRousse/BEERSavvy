@@ -43,6 +43,7 @@ header {
   position: relative;
   @extend %title;
   text-align: center;
+  pointer-events: none;
   }
 }
 
@@ -52,5 +53,14 @@ h2.section-header {
   font-family: $title-font-family;
   font-size: $title-font-size / 2;
   letter-spacing: -6px;
+  text-transform: uppercase;
+}
+
+h3.section-header {
+  width: 100%;
+  text-align: center;
+  font-family: $title-font-family;
+  font-size: $title-font-size / 4;
+  letter-spacing: -3px;
   text-transform: uppercase;
 }

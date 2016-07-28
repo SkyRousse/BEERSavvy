@@ -158,11 +158,11 @@
   background-color: #36080A;
   border-color: #36080A; }
 
-header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper {
+header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper, .brewery-large-card .inner-wrapper {
   width: 97.5%;
   margin: 0 auto; }
 
-.beer-card .inner-wrapper .beer-stats td {
+.beer-card .inner-wrapper .beer-stats td, .brewery-beer-card .inner-wrapper tbody tr td {
   font-family: "Roboto", sans-serif;
   font-size: 16px; }
 
@@ -248,7 +248,8 @@ header {
   flex: 1 1 100%; }
   header h1 {
     position: relative;
-    text-align: center; }
+    text-align: center;
+    pointer-events: none; }
 
 h2.section-header {
   width: 100%;
@@ -256,6 +257,14 @@ h2.section-header {
   font-family: "Nunito", sans-serif;
   font-size: 60px;
   letter-spacing: -6px;
+  text-transform: uppercase; }
+
+h3.section-header {
+  width: 100%;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 30px;
+  letter-spacing: -3px;
   text-transform: uppercase; }
 
 #beer-name-input {
@@ -272,7 +281,8 @@ h2.section-header {
     line-height: 3em;
     text-align: center;
     border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px; }
+    border-bottom-left-radius: 4px;
+    background: #fef6e6; }
   #beer-name-input button {
     flex: 1 1 20%;
     border: none;
@@ -297,13 +307,13 @@ h2.section-header {
   0% {
     height: 0px; }
   10%, 90% {
-    height: 475px; }
+    height: 530px; }
   100% {
     height: 0px; } }
 .pour {
   position: absolute;
   left: 81px;
-  top: -150px;
+  top: -205px;
   width: 16px;
   height: 0px;
   border-radius: 10px;
@@ -593,6 +603,13 @@ body {
   padding: 15px;
   border-radius: 6px;
   box-shadow: 0px 0px 35px -6px #332c23; }
+  .beer-card .inner-wrapper .brewery-logo {
+    width: 282px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-self: center; }
   .beer-card .inner-wrapper .beer-pour {
     position: relative;
     justify-content: center;
@@ -707,6 +724,8 @@ html {
     display: flex; }
     .beer-card:nth-of-type(n+2) .inner-wrapper .beer-pour {
       display: none; }
+    .beer-card:nth-of-type(n+2) .inner-wrapper .brewery-logo {
+      display: none; }
     .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats {
       flex: 1 1 100%; }
       .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats tr:first-child {
@@ -715,5 +734,89 @@ html {
         margin-bottom: 15px; }
     .beer-card:nth-of-type(n+2) .inner-wrapper .beer-description {
       display: none; }
+
+#home {
+  margin-bottom: 15px; }
+
+.brewery-large-card .inner-wrapper {
+  background: #fef6e6;
+  flex: 1 1 100%;
+  margin-bottom: 3em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 591px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 35px -6px #332c23; }
+  .brewery-large-card .inner-wrapper .brewery-logo {
+    width: 282px;
+    margin: auto;
+    height: 204px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: 2px solid #332c23;
+    border-radius: 6px; }
+  .brewery-large-card .inner-wrapper h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-size: 30px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    padding: 15px; }
+  .brewery-large-card .inner-wrapper .brewery-description {
+    padding: 40px 10px 20px 10px;
+    font-family: sans-serif;
+    flex: 1 1 100%; }
+
+.brewery-beer-card {
+  position: relative;
+  width: 240px;
+  margin: 2em 1em;
+  flex: 1 1 40%;
+  border-radius: 6px;
+  box-shadow: 0px 0px 35px -6px #332c23;
+  background: #fef6e6; }
+  .brewery-beer-card:nth-of-type(even) {
+    margin-left: 0; }
+  .brewery-beer-card:nth-of-type(odd) {
+    margin-right: 0; }
+  .brewery-beer-card .inner-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center; }
+    .brewery-beer-card .inner-wrapper tbody {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%; }
+      .brewery-beer-card .inner-wrapper tbody tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 2px solid #6B2636;
+        padding-bottom: 5px;
+        height: 45px; }
+        .brewery-beer-card .inner-wrapper tbody tr:last-child {
+          margin-bottom: 15px; }
+        .brewery-beer-card .inner-wrapper tbody tr td {
+          display: flex;
+          position: relative;
+          flex: 1 1 auto; }
+          .brewery-beer-card .inner-wrapper tbody tr td.beer-name {
+            font-weight: bold; }
+          .brewery-beer-card .inner-wrapper tbody tr td.label {
+            font-weight: bold;
+            text-transform: uppercase;
+            justify-content: flex-start; }
+          .brewery-beer-card .inner-wrapper tbody tr td.value {
+            text-align: right;
+            padding-left: 15px;
+            justify-content: flex-end; }
 
 /*# sourceMappingURL=app.css.map */
