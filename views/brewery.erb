@@ -1,3 +1,10 @@
+<section id="beer-name-input">
+  <form action="/beers" method="post">
+    <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
+    <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+</section>
+<h2>DUMMY BREWERY NAME</h2>
 <% @all_beers.each do |beer| %>
 <article class="beer-card">
   <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
@@ -83,4 +90,5 @@
     </p>
   </a>
 </article>
+<h3>Related Beers</h3>
 <% end %>
