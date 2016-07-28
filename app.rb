@@ -31,11 +31,16 @@ get("/beers/:name") do
     @style_id = @all_beers[0][:style][:id]
     @style_info = brewery_db.styles.find(@style_id)
     @style_description = @style_info[:description]
-    brewery_db.beers.all(styleId: @style_id).each_with_index do |item, index|
-      @all_beers.push(item)
-      break if index == 3
+    @related_beers = brewery_db.beers.all(styleId: @style_id, withBreweries: 'Y')
+    @related_beers.each_with_index do |item, index|
+
+    if [:breweries, :description, :name_display, :style, :ibu, :abv, :glass].all? {|key| item.has_key? key}
+      if [:id, :srm_min, :srm_max, :short_name, :description].all? {|key| item[:style].has_key? key}
+        @all_beers.push(item)
+      end
     end
-# binding.pry
+      break if @all_beers.size >= 25
+    end
     @srm_min = @all_beers[0][:style][:srm_min]
     @srm_max = @all_beers[0][:style][:srm_max]
     @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
