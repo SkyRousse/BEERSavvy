@@ -1,61 +1,97 @@
-$cubic: cubic-bezier(.64,.09,.08,1);
+@-webkit-keyframes tooltip {
+  0% { visibility: hidden;  }
+  100% { visibility: visible; }
+}
 
-.tooltip--triangle {
-  position: relative;
-  border-bottom: 1px grey dashed;
-  &:after {
-    flex-grow: 1;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    content: attr(data-tooltip);
-    padding: 6px 10px;
-    top: 1.4em;
-    left: 50%;
-    transform: translateX(-50%) translateY(-2px);
-    background: grey;
-    color: white;
-    white-space: wrap;
-    width: 700px;
-    text-overflow: scroll;
-    z-index: 3000;
-    border-radius: 2px;
-    transition: opacity 0.2s $cubic, transform 0.2s $cubic;
-    text-align: left;
+.tooltip {
+  &>a {
+    border-bottom: 1px grey dashed;
+    text-decoration: none;
   }
-  &:hover {
-    &:after {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
+  &>span {
+    border-bottom: 1px grey dashed;
+  }
+}
+
+.tooltip-info {
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  width: 400px;
+  text-align: left;
+  background-color: $light-brown;
+  padding: $spacing;
+  border-radius: 6px;
+}
+
+.tooltip:hover {
+  &>.tooltip-info {
+    z-index: 9999;
+    animation: tooltip 0.25s normal ease-out forwards;
+    li {
+      margin: $spacing / 2;
     }
   }
 }
 
-.tooltip--triangle {
-  &:before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: solid 5px transparent;
-    border-right: solid 5px transparent;
-    border-bottom: solid 5px grey;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    transform: translateX(-50%) translateY(-2px);
-    top: 1.1em;
-    left: 50%;
-    transition: opacity 0.2s $cubic, transform 0.2s $cubic;
-    z-index: 3;
-  }
-  &:hover {
-    &:before {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-}
+// $cubic: cubic-bezier(.64,.09,.08,1);
+//
+// .tooltip--triangle {
+//   position: relative;
+  // border-bottom: 1px grey dashed;
+//   &:after {
+//     flex-grow: 1;
+//     opacity: 0;
+//     visibility: hidden;
+//     position: absolute;
+//     content: attr(data-tooltip);
+//     padding: 6px 10px;
+//     top: 1.4em;
+//     left: 50%;
+//     transform: translateX(-50%) translateY(-2px);
+//     background: grey;
+//     color: white;
+//     white-space: wrap;
+//     width: 700px;
+//     text-overflow: scroll;
+//     z-index: 3000;
+//     border-radius: 2px;
+//     transition: opacity 0.2s $cubic, transform 0.2s $cubic;
+//     text-align: left;
+//   }
+//   &:hover {
+//     &:after {
+//       display: block;
+//       opacity: 1;
+//       visibility: visible;
+//       transform: translateX(-50%) translateY(0);
+//     }
+//   }
+// }
+//
+// .tooltip--triangle {
+//   &:before {
+//     content: '';
+//     width: 0;
+//     height: 0;
+//     border-left: solid 5px transparent;
+//     border-right: solid 5px transparent;
+//     border-bottom: solid 5px grey;
+//     opacity: 0;
+//     visibility: hidden;
+//     position: absolute;
+//     transform: translateX(-50%) translateY(-2px);
+//     top: 1.1em;
+//     left: 50%;
+//     transition: opacity 0.2s $cubic, transform 0.2s $cubic;
+//     z-index: 3;
+//   }
+//   &:hover {
+//     &:before {
+//       display: block;
+//       opacity: 1;
+//       visibility: visible;
+//       transform: translateX(-50%) translateY(0);
+//     }
+//   }
+// }

@@ -176,54 +176,32 @@ header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper {
   font-size: 21px;
   line-height: 1; }
 
-.tooltip--triangle {
-  position: relative;
+@-webkit-keyframes tooltip {
+  0% {
+    visibility: hidden; }
+  100% {
+    visibility: visible; } }
+.tooltip > a {
+  border-bottom: 1px grey dashed;
+  text-decoration: none; }
+.tooltip > span {
   border-bottom: 1px grey dashed; }
-  .tooltip--triangle:after {
-    flex-grow: 1;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    content: attr(data-tooltip);
-    padding: 6px 10px;
-    top: 1.4em;
-    left: 50%;
-    transform: translateX(-50%) translateY(-2px);
-    background: grey;
-    color: white;
-    white-space: wrap;
-    width: 700px;
-    text-overflow: scroll;
-    z-index: 3000;
-    border-radius: 2px;
-    transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
-    text-align: left; }
-  .tooltip--triangle:hover:after {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0); }
 
-.tooltip--triangle:before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: solid 5px transparent;
-  border-right: solid 5px transparent;
-  border-bottom: solid 5px grey;
-  opacity: 0;
+.tooltip-info {
   visibility: hidden;
   position: absolute;
-  transform: translateX(-50%) translateY(-2px);
-  top: 1.1em;
-  left: 50%;
-  transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
-  z-index: 3; }
-.tooltip--triangle:hover:before {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0); }
+  top: 40px;
+  width: 400px;
+  text-align: left;
+  background-color: #C89B7B;
+  padding: 15px;
+  border-radius: 6px; }
+
+.tooltip:hover > .tooltip-info {
+  z-index: 9999;
+  animation: tooltip 0.25s normal ease-out forwards; }
+  .tooltip:hover > .tooltip-info li {
+    margin: 7.5px; }
 
 @-webkit-keyframes tilt {
   0% {
@@ -292,14 +270,14 @@ header {
   0% {
     height: 0px; }
   10%, 90% {
-    height: 445px; }
+    height: 500px; }
   100% {
     height: 0px; } }
 .pour {
   position: absolute;
-  left: 80px;
-  top: -120px;
-  width: 18px;
+  left: 81px;
+  top: -182px;
+  width: 16px;
   height: 0px;
   border-radius: 10px;
   animation: pour 3s normal ease-out forwards;
@@ -597,8 +575,6 @@ a, a:visited {
     flex: 0 1 40%;
     display: flex;
     padding: 0 15px; }
-    .beer-card .inner-wrapper .beer-stats a {
-      text-decoration: underline; }
     .beer-card .inner-wrapper .beer-stats tbody {
       display: flex;
       flex-direction: column;
@@ -616,15 +592,19 @@ a, a:visited {
       .beer-card .inner-wrapper .beer-stats tr:last-child {
         margin-bottom: 75px; }
     .beer-card .inner-wrapper .beer-stats td {
+      display: flex;
+      position: relative;
       flex: 1 1 auto; }
       .beer-card .inner-wrapper .beer-stats td.beer-name {
         font-weight: bold; }
     .beer-card .inner-wrapper .beer-stats .label {
       font-weight: bold;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      justify-content: flex-start; }
     .beer-card .inner-wrapper .beer-stats .value {
       text-align: right;
-      padding-left: 15px; }
+      padding-left: 15px;
+      justify-content: flex-end; }
   .beer-card .inner-wrapper .beer-description {
     padding: 40px 10px 20px 10px;
     font-family: sans-serif;
