@@ -2,34 +2,28 @@
 
 ##### Team Project
 
-#### By ...
+#### By Sky Rousse, James Turello, Kevin VanEvery, Nick Arrasate
 
 ## Objectives
-
+Exercise BreweryDB's api to search for beer and/or brewery info.
 
 
 ## Technologies Used
 
-* Application: Ruby, Sinatra, Active Record
+* Application: Ruby, Sinatra
 * Testing: Rspec, Capybara, Pry
-* Database: Postgres
+* Sass
 
 Installation
 ------------
 
 ```
-$ git clone ...
+$ git clone https://github.com/SkyRousse/BEERSavvy.git
 ```
 
 Install required gems:
 ```
 $ bundle install
-```
-
-Create databases:
-```
-rake db:create
-rake db:schema:load
 ```
 
 Start the webserver:

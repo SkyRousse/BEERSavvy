@@ -18,6 +18,12 @@
     transform: rotate(0deg);
     animation: tilt 3.5s normal linear;
     -webkit-animation-delay: 500ms;
+    position: absolute;
+    left: 30px;
+  }
+  span#rest-of-title {
+    position: absolute;
+    left: 102px;
   }
   span#savvy{
     font-family: $title-italics-font-family;

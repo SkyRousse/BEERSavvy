@@ -4,6 +4,11 @@
 }
 
 .beer-card {
+  &:first-of-type {
+    .inner-wrapper {
+      background: lighten($light-yellow, 13%);
+    }
+  }
   .inner-wrapper {
     @extend %outer-container;
     flex: 1 1 100%;
@@ -13,7 +18,7 @@
     justify-content: space-between;
     width: 591px;
     padding: $spacing;
-    background: lighten($light-yellow, 13%);
+
     border-radius: 6px;
     box-shadow: 0px 0px 35px -6px rgba(51,44,35,1);
       .beer-pour {
@@ -26,9 +31,6 @@
       }
     }
     .beer-stats {
-      a {
-        text-decoration: underline;
-      }
       flex: 0 1 40%;
       display: flex;
       padding: 0 $spacing;
@@ -53,6 +55,8 @@
         }
       }
       td {
+        display: flex;
+        position: relative;
         flex: 1 1 auto;
         @extend %base-text;
         &.beer-name {
@@ -62,11 +66,13 @@
       .label {
         font-weight: bold;
         text-transform: uppercase;
+        justify-content: flex-start;
 
       }
       .value {
         text-align: right;
         padding-left: $spacing;
+        justify-content: flex-end;
       }
     }
     .beer-description {
