@@ -223,7 +223,12 @@ header h1 {
     display: inline-block;
     transform: rotate(0deg);
     animation: tilt 3.5s normal linear;
-    -webkit-animation-delay: 500ms; }
+    -webkit-animation-delay: 500ms;
+    position: absolute;
+    left: 30px; }
+  header h1 span#rest-of-title {
+    position: absolute;
+    left: 102px; }
   header h1 span#savvy {
     font-family: "Pattaya", sans-serif;
     letter-spacing: -5px;
@@ -270,13 +275,13 @@ header {
   0% {
     height: 0px; }
   10%, 90% {
-    height: 500px; }
+    height: 475px; }
   100% {
     height: 0px; } }
 .pour {
   position: absolute;
   left: 81px;
-  top: -182px;
+  top: -150px;
   width: 16px;
   height: 0px;
   border-radius: 10px;
@@ -549,6 +554,9 @@ body {
 a, a:visited {
   text-decoration: none;
   color: inherit; }
+
+#beer-name-input {
+  margin-top: 120px; }
 
 #home {
   margin-bottom: 15px; }
