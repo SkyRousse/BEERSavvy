@@ -171,7 +171,7 @@ header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper {
   font-size: 14px;
   line-height: 1; }
 
-#home {
+.alert-message, #home {
   font-family: "Roboto", sans-serif;
   font-size: 21px;
   line-height: 1; }
@@ -202,6 +202,13 @@ header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper {
   animation: tooltip 0.25s normal ease-out forwards; }
   .tooltip:hover > .tooltip-info li {
     margin: 7.5px; }
+
+.alert-message {
+  color: #6B2636;
+  position: absolute;
+  top: 170px;
+  left: 290px;
+  text-transform: uppercase; }
 
 @-webkit-keyframes tilt {
   0% {
