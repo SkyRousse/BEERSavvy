@@ -12,11 +12,13 @@
   <body>
     <div class="outer-wrapper">
       <header>
-        <h1><span id="tilt">B</span><span id="eer">EER</span><span id="savvy">Savvy</span></h1>
+        <h1><span id="tilt">B</span><span id="rest-of-title">EER<span id="savvy">Savvy</span></span></h1>
       </header>
-      <% if flash[:error] %>
-        <%= flash[:error] %>
-      <% end %>
+        <div class="alert-message">
+          <% if flash[:error] %>
+            <%= flash[:error] %>
+          <% end %>
+        </div>
       <%= yield %>
     </div>
   </body>

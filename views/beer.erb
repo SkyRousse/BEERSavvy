@@ -4,11 +4,12 @@
     <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
 </section>
+<h2>Beers</h2>
 <% if !@all_beers.nil? %>
   <% if !@all_beers.first.nil? %>
     <% @all_beers.each do |beer| %>
       <article class="beer-card">
-        <a class="inner-wrapper" href="#">
+        <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
           <figure class="beer-pour">
             <div class="container">
               <div class="pour srm-<%= @srm_avg %>"></div>
@@ -48,16 +49,30 @@
               <td class="label">
                 Brewery
               </td>
+<<<<<<< HEAD
+              <td class="value brewery-name tooltip">
+                <a href="#">Dummy Brewery Name</a>
+                <div class="tooltip-info">
+                  <ul>
+                    <li><a href="#">Dummy Brewery Website</a></li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                  </ul>
+                </div>
+=======
               <td class="value brewery-name">
               <a href="/breweries/<%= beer[:breweries][0][:id] %>"><%= beer[:breweries][0][:name] %></a>
+>>>>>>> master
               </td>
             </tr>
             <tr>
               <td class="label">
                 Style
               </td>
-              <td class="value beer-style">
-                <span class="tooltip--triangle" data-tooltip="<%= beer[:style][:description] %>"><%= beer[:style][:short_name] %></span>
+              <td class="value beer-style tooltip">
+                <span><%= beer[:style][:short_name] %></span>
+                <div class="tooltip-info">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
               </td>
             </tr>
             <tr>
@@ -82,6 +97,7 @@
           </p>
         </a>
       </article>
+      <h3>Related Beers</h3>
     <% end %>
   <% end %>
 <% end %>

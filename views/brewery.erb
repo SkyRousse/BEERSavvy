@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+<section id="beer-name-input">
+  <form action="/beers" method="post">
+    <input type="text" class="form-control" name="beer_name" placeholder="Beer Name">
+    <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+</section>
+<h2>DUMMY BREWERY NAME</h2>
+=======
 <table class="beer-stats">
   <tr>
     <td class="label">Name</td><td><%= @brewery[:name] %></td>
@@ -10,73 +19,91 @@
   </tr>
 </table>
 
+>>>>>>> master
 <% @all_beers.each do |beer| %>
-  <section id="beer-cards">
-    <article class="beer-card">
-      <figure class="beer-pour">
-        <div id="container">
-          <div class="pour"></div>
-          <div id="beaker">
-            <div class="beaker-handle">
-              <div class="rounded-inner-handle"></div>
-            </div>
-            <div class="beer-foam">
-              <div class="foam-1"></div>
-              <div class="foam-2"></div>
-              <div class="foam-3"></div>
-              <div class="foam-4"></div>
-              <div class="foam-5"></div>
-              <div class="foam-6"></div>
-            </div>
-
-            <div id="liquid" class="srm-<%= @srm_avg %>">
-
-              <div class="bubble bubble1"></div>
-              <div class="bubble bubble2"></div>
-              <div class="bubble bubble3"></div>
-              <div class="bubble bubble4"></div>
-              <div class="bubble bubble5"></div>
-            </div>
+<article class="beer-card">
+  <a class="inner-wrapper srm-<%= @srm_avg %>" href="#">
+    <figure class="beer-pour">
+      <div class="container">
+        <div class="pour srm-<%= @srm_avg %>"></div>
+        <div class="beaker">
+          <div class="beaker-handle">
+            <div class="rounded-inner-handle"></div>
+          </div>
+          <div class="beer-foam">
+            <div class="foam-1"></div>
+            <div class="foam-2"></div>
+            <div class="foam-3"></div>
+            <div class="foam-4"></div>
+            <div class="foam-5"></div>
+            <div class="foam-6"></div>
+            <div class="foam-7"></div>
+          </div>
+          <div class="liquid srm-<%= @srm_avg %>">
+            <div class="bubble bubble1"></div>
+            <div class="bubble bubble2"></div>
+            <div class="bubble bubble3"></div>
+            <div class="bubble bubble4"></div>
+            <div class="bubble bubble5"></div>
           </div>
         </div>
-      </figure>
-      <table class="beer-stats">
-        <tr>
-          <td class="label">
-            Name
-          </td>
-          <td class="value beer-name">
-            <%= beer[:name_display] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            Style
-          </td>
-          <td class="value beer-style">
-            <%= beer[:style][:short_name] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            IBU
-          </td>
-          <td class="value beer-ibu">
-            <%= beer[:ibu] %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">
-            ABV
-          </td>
-          <td class="value beer-abv">
-            <%= beer[:abv] %>%
-          </td>
-        </tr>
-      </table>
-      <p class="beer-description">
-        <%= beer[:description] %>
-      </p>
-    </article>
-  </section>
+      </div>
+    </figure>
+    <table class="beer-stats">
+      <tr>
+        <td class="label">
+          Name
+        </td>
+        <td class="value beer-name">
+          <%= beer[:name_display] %>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          Brewery
+        </td>
+        <td class="value brewery-name tooltip">
+          <a href="#">Dummy Brewery Name</a>
+          <div class="tooltip-info">
+            <ul>
+              <li><a href="#">Dummy Brewery Website</a></li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          Style
+        </td>
+        <td class="value beer-style tooltip">
+          <span><%= beer[:style][:short_name] %></span>
+          <div class="tooltip-info">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          IBU
+        </td>
+        <td class="value beer-ibu">
+          <%= beer[:ibu] %>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+          ABV
+        </td>
+        <td class="value beer-abv">
+          <%= beer[:abv] %>%
+        </td>
+      </tr>
+    </table>
+    <p class="beer-description">
+      <%= beer[:description] %>
+    </p>
+  </a>
+</article>
+<h3>Related Beers</h3>
 <% end %>
