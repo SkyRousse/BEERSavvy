@@ -51,31 +51,7 @@
   flex: 1 1 40%;
   border-radius: 6px;
   box-shadow: 0px 0px 35px -6px rgba(51,44,35,1);
-  background-color: rgba(0, 0, 0, 0.5);
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0px 0px 35px -6px rgba(51,44,35,1);
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://s3.amazonaws.com/brewerydbapi/brewery/iP6Zmx/upload_Q3mJrK-large.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
+  background: lighten($light-yellow, 13%);
   &:nth-of-type(even) {
     margin-left: 0;
   }
@@ -108,7 +84,6 @@
           position: relative;
           flex: 1 1 auto;
           @extend %base-text;
-          color: white;
           &.beer-name {
             font-weight: bold;
           }

@@ -779,29 +779,7 @@ html {
   flex: 1 1 40%;
   border-radius: 6px;
   box-shadow: 0px 0px 35px -6px #332c23;
-  background-color: rgba(0, 0, 0, 0.5); }
-  .brewery-beer-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0px 0px 35px -6px #332c23; }
-  .brewery-beer-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://s3.amazonaws.com/brewerydbapi/brewery/iP6Zmx/upload_Q3mJrK-large.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; }
+  background: #fef6e6; }
   .brewery-beer-card:nth-of-type(even) {
     margin-left: 0; }
   .brewery-beer-card:nth-of-type(odd) {
@@ -829,8 +807,7 @@ html {
         .brewery-beer-card .inner-wrapper tbody tr td {
           display: flex;
           position: relative;
-          flex: 1 1 auto;
-          color: white; }
+          flex: 1 1 auto; }
           .brewery-beer-card .inner-wrapper tbody tr td.beer-name {
             font-weight: bold; }
           .brewery-beer-card .inner-wrapper tbody tr td.label {
