@@ -20,7 +20,9 @@
     </p>
   </div>
 </article>
-<h3 class="section-header">More beers from this brewery</h3>
+<% if @all_beers.any? %>
+  <h3 class="section-header">More beers from this brewery</h3>
+<% end %>
 <% @all_beers.each do |beer| %>
 <article class="brewery-beer-card">
   <div class="inner-wrapper">

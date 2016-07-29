@@ -78,14 +78,14 @@ end
 
 post('/random') do
   @beer = brewery_db.beers.random(withBreweries: 'Y')
-  if @beer.nil? ||
-    !([:breweries, :description, :name_display, :style ].all? {|key| @beer.has_key? key}) ||
-    !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @beer[:style].has_key? key})
-
-      flash[:error] = 'No data returned. Try another search.'
-      redirect('/')
-  else
+  # if @beer.nil? ||
+  #   !([:breweries, :description, :name_display, :style ].all? {|key| @beer.has_key? key}) ||
+  #   !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @beer[:style].has_key? key})
+  #
+  #     flash[:error] = 'No data returned. Try another search.'
+  #     redirect('/')
+  # else
     @id = @beer[:id]
     redirect("/beers/#{@id}")
-  end
+  # end
 end
