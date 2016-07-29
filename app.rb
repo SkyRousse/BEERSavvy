@@ -31,7 +31,6 @@ get("/beers/:id") do
   @all_beers = []
   @id = params.fetch('id')
   @all_beers.push(brewery_db.beers.find(@id, withBreweries: "Y"))
-  binding.pry
   if @all_beers.first.nil?
     flash[:error] = 'No data returned. Try another search.'
     redirect('/')
