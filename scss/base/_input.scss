@@ -30,5 +30,15 @@
       color: $dark-brown;
       // color: white;
     }
+    &#random {
+      background: $dark-brown;
+      color: white;
+      width: 70%;
+      margin: auto;
+      flex: none;
+      height: 2em;
+      margin-top: $spacing;
+      font-size: $bigger-font-size;
+    }
   }
 }

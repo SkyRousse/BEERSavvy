@@ -292,6 +292,15 @@ h3.section-header {
     #beer-name-input button i {
       font-size: 21px;
       color: #332c23; }
+    #beer-name-input button#random {
+      background: #332c23;
+      color: white;
+      width: 70%;
+      margin: auto;
+      flex: none;
+      height: 2em;
+      margin-top: 15px;
+      font-size: 21px; }
 
 .container {
   width: 75%;
@@ -307,13 +316,13 @@ h3.section-header {
   0% {
     height: 0px; }
   10%, 90% {
-    height: 530px; }
+    height: 585px; }
   100% {
     height: 0px; } }
 .pour {
   position: absolute;
   left: 81px;
-  top: -205px;
+  top: -260px;
   width: 16px;
   height: 0px;
   border-radius: 10px;
