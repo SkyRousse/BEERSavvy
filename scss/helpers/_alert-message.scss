@@ -1,8 +1,8 @@
 .alert-message {
   color: $red;
   position: absolute;
-  top: 170px;
-  left: 290px;
+  top: 230px;
+  left: 0px;
   @extend %bigger-text;
   text-transform: uppercase;
 }
