@@ -5,7 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file}
 enable :sessions
 
 brewery_db = BreweryDB::Client.new do |config|
-  config.api_key = ("37f05932e468ea014afabb1d166a6f99")
+  config.api_key = ("d095dc59bcacf6877086a3fbdaf969db")
 end
 
 get('/') do
@@ -13,35 +13,28 @@ get('/') do
 end
 
 post('/beers') do
-  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
-  redirect('/beers/'.concat(@name))
-end
-
-get("/beers/:name") do
-  @all_beers = []
-
-  no_apos_name = params[:name].strip.gsub "'", ""
-  @name = no_apos_name.strip.gsub(/ /,'+')
-
-binding.pry
-
-  # @name = params['name'].gsub('+', ' ')
-  @all_beers.push(brewery_db.beers.all(name: @name, withBreweries: 'Y').first)
-
-
-puts @all_beers.first.nil?
-puts !([:breweries, :description, :name_display, :style].all? {|key| @all_beers.first.has_key? key})
-puts !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @all_beers.first[:style].has_key? key})
-puts @all_beers.first
-
-binding.pry
-
-  if @all_beers.first.nil? ||
-    !([:breweries, :description, :name_display, :style ].all? {|key| @all_beers.first.has_key? key}) ||
-    !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @all_beers.first[:style].has_key? key})
+  @name = params.fetch('beer_name')
+  @beer = brewery_db.beers.all(name: @name, withBreweries: 'Y')
+  if @beer.first.nil? ||
+    !([:breweries, :description, :name_display, :style ].all? {|key| @beer.first.has_key? key}) ||
+    !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @beer.first[:style].has_key? key})
 
       flash[:error] = 'No data returned. Try another search.'
       redirect('/')
+  else
+    @id = @beer.first[:id]
+    redirect("/beers/#{@id}")
+  end
+end
+
+get("/beers/:id") do
+  @all_beers = []
+  @id = params.fetch('id')
+  @all_beers.push(brewery_db.beers.find(@id, withBreweries: "Y"))
+  binding.pry
+  if @all_beers.first.nil?
+    flash[:error] = 'No data returned. Try another search.'
+    redirect('/')
   else
     @brewery = @all_beers[0][:breweries]
     @style_id = @all_beers[0][:style][:id]
@@ -63,11 +56,6 @@ binding.pry
     @srm_avg = (@srm_min.to_i + @srm_max.to_i)/2
     erb(:beer)
   end
-end
-
-post('/beers') do
-  @name = params.fetch('beer_name').strip.gsub(/ /,'+')
-  redirect('/beers/'.concat(@name))
 end
 
 get('/breweries/:id') do
@@ -96,30 +84,15 @@ get('/breweries/:id') do
 end
 
 post('/random') do
-  count = 0
-  until count == 3
-    returned = brewery_db.beers.random
+  @beer = brewery_db.beers.random(withBreweries: 'Y')
+  if @beer.nil? ||
+    !([:breweries, :description, :name_display, :style ].all? {|key| @beer.has_key? key}) ||
+    !([:id, :srm_min, :srm_max, :short_name, :description].all? {|key| @beer[:style].has_key? key})
 
-puts "count: #{count.to_s}"
-puts "top - returned[:name] - #{returned[:name]}"
-
-    if ((returned[:name] =~ /[^ -~] /).nil?)
-      no_apos_name = returned[:name].strip.gsub "'", ""
-      @name = no_apos_name.strip.gsub(/ /,'+')
-
-puts "returned[:name] - " + returned[:name]
-puts ((returned[:name] =~ /[^ -~] /).nil?)
-
-      break
-    end
-    count += 1
-  end
-
-puts "after if - @name: #{@name}"
-
-  if !(@name.nil?)
-    redirect("/beers/#{@name}")
+      flash[:error] = 'No data returned. Try another search.'
+      redirect('/')
   else
-    redirect '/'
+    @id = @beer[:id]
+    redirect("/beers/#{@id}")
   end
 end
