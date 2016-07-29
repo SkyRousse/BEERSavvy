@@ -21,6 +21,12 @@
     }
     .beer-stats {
       flex: 1 1 100%;
+      tbody {
+        background: lighten($light-yellow, 13%);
+        opacity: 0.5;
+        border-radius: 6px;
+        padding: 0 $spacing;
+      }
       tr {
         &:first-child {
           margin-top: 0;

@@ -25,6 +25,7 @@
 }
 
 .tooltip:hover {
+  opacity: 1;
   &>.tooltip-info {
     z-index: 9999;
     animation: tooltip 0.25s normal ease-out forwards;

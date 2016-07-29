@@ -198,11 +198,13 @@ header, #beer-name-input, #beer-name-input form, .beer-card .inner-wrapper, .bre
   padding: 15px;
   border-radius: 6px; }
 
-.tooltip:hover > .tooltip-info {
-  z-index: 9999;
-  animation: tooltip 0.25s normal ease-out forwards; }
-  .tooltip:hover > .tooltip-info li {
-    margin: 7.5px; }
+.tooltip:hover {
+  opacity: 1; }
+  .tooltip:hover > .tooltip-info {
+    z-index: 9999;
+    animation: tooltip 0.25s normal ease-out forwards; }
+    .tooltip:hover > .tooltip-info li {
+      margin: 7.5px; }
 
 .alert-message {
   color: #6B2636;
@@ -636,11 +638,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 100%;
-      background: #fef6e6;
-      opacity: 0.5;
-      border-radius: 6px;
-      padding: 0 15px; }
+      width: 100%; }
     .beer-card .inner-wrapper .beer-stats tr {
       display: flex;
       justify-content: space-between;
@@ -743,6 +741,11 @@ html {
       display: none; }
     .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats {
       flex: 1 1 100%; }
+      .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats tbody {
+        background: #fef6e6;
+        opacity: 0.5;
+        border-radius: 6px;
+        padding: 0 15px; }
       .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats tr:first-child {
         margin-top: 0; }
       .beer-card:nth-of-type(n+2) .inner-wrapper .beer-stats tr:last-child {
