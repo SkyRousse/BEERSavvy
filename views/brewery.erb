@@ -3,13 +3,18 @@
     <input type="text" class="form-control" name="beer_name" placeholder="Please enter a beer name" required>
     <button type="submit"  id="beer_search" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
+  <form action='/random' method="post">
+    <button  id="random" type="submit" value="">Or try your luck</button>
+  </form>
 </section>
 <article class="brewery-large-card">
   <div class="inner-wrapper">
     <h2><a href="<%= @brewery[:website] %>"><%= @brewery[:name] %></a></h2>
-    <figure class="brewery-logo">
-      <a href="<%= @brewery[:website] %>"><img src="<%= @brewery[:images][:large] %>" alt="<%= @brewery[:name] %> logo" /></a>
-    </figure>
+    <% if !(@brewery[:images].nil?) %>
+      <figure class="brewery-logo">
+        <a href="<%= @brewery[:website] %>"><img src="<%= @brewery[:images][:large] %>" alt="<%= @brewery[:name] %> logo" /></a>
+      </figure>
+    <% end %>
     <p class="brewery-description">
       <%= @brewery[:description] %>
     </p>
@@ -33,7 +38,7 @@
           Brewery
         </td>
         <td class="value brewery-name tooltip">
-          <span><%= @brewery[:name] %></span> 
+          <span><%= @brewery[:name] %></span>
           <div class="tooltip-info">
             <ul>
                 <li><a href="#"><%= @brewery[:website] %></a></li>
