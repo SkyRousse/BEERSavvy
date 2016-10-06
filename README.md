@@ -33,6 +33,9 @@ $ ruby app.rb
 
 Navigate to `localhost:4567` in browser.
 
+### Questions? If so please contact me at:
+skyrousse@gmail.com
+
 License
 -------
 
